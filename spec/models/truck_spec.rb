@@ -1,23 +1,17 @@
 require 'rails_helper'
 RSpec.describe 'truck' do
-  scenario 'Adds a truck' do
-    food_truck = Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
-    food_truck.save
 
-    expect(Truck.all.length).to eq(1)
-  end
-  scenario 'destroy a truck' do
-    food_truck = Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
-    food_truck.save
-    food_truck.destroy
+  context 'when the truck is created' do
+    it 'has a name' do
+      expect(Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com').name).to eq 'Yummy Food'
+    end
 
-    expect(Truck.all.length).to eq(0)
-  end
-  scenario 'edit a truck' do
-    food_truck = Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
-    food_truck.save
-    food_truck.name = 'Gross Food'
+    it 'has a description' do
+      expect(Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com').description).to eq 'The yummiest food'
+    end
 
-    expect(food_truck.name).to eq('Gross Food')
+    it 'has an email' do
+      expect(Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com').email).to eq 'yummy@food.com'
+    end
   end
 end

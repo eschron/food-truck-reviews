@@ -11,6 +11,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem 'foundation-rails'
+
 group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'

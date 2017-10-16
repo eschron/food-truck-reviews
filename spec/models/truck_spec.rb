@@ -13,7 +13,7 @@ RSpec.describe 'truck' do
 
     expect(Truck.all.length).to eq(0)
   end
-  scenario 'destroy a truck' do
+  scenario 'edit a truck' do
     food_truck = Truck.new(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
     food_truck.save
     food_truck.name = 'Gross Food'

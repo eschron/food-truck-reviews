@@ -24,8 +24,15 @@ group :development, :test do
   gem 'valid_attribute'
 end
 
+group :test do
+  gem 'coveralls', require: false
+  gem 'simplecov'
+end
+
 group :production do
   gem 'rails_12factor'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.3.3"

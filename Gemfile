@@ -23,6 +23,11 @@ group :development, :test do
   gem 'valid_attribute'
 end
 
+group :test do
+  gem 'coveralls', require: false
+  gem 'simplecov'
+end
+
 group :production do
   gem 'rails_12factor'
 end

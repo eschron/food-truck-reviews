@@ -3,6 +3,9 @@ RSpec.describe "User visits trucks index page" do
   scenario "User sees list of all trucks" do
     food_truck = Truck.create(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
 
+    user = FactoryGirl.create(:user)
+    login_as(user, :scope => :user)
+
     visit trucks_path
 
     expect(page).to have_content('All Trucks')

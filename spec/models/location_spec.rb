@@ -1,24 +1,18 @@
 require "rails_helper"
 
 RSpec.describe "location" do
-  scenario "add a new location" do
-    back_bay = Location.new(body: 'Back Bay')
-    back_bay.save
-
-    expect(Location.all.length).to eq(1)
+  context "when the location is created" do
+    it "has a body" do
+      expect(Location.new(body: 'Back Bay').body).to eq('Back Bay')      
+    end
   end
-  scenario "edits a location" do
-    back_bay = Location.new(body: 'Back Bay')
-    back_bay.save
-    back_bay.body = 'Not Back Bay'
 
-    expect(back_bay.body).to eq('Not Back Bay')
-  end
-  scenario "destroys a location" do
-    back_bay = Location.new(body: 'Back Bay')
-    back_bay.save
-    back_bay.destroy
+  context 'creating truck with missing information' do
+    it "is missing the body" do
+      location = Location.new()
+      location.save
 
-    expect(Location.all.length).to eq(0)
+      expect(Location.all.length).to eq(0)    
+    end
   end
 end

@@ -1,0 +1,14 @@
+<h1> <%= @truck.name %></h1>
+
+<p>Description: <%= @truck.description %></p>
+
+
+<%= link_to "Add a Review", new_truck_review_path(@truck) %>
+
+<p>Reviews:</p>
+<% @reviews.each do |review| %>
+  <div>
+    <p>Rating: <%= review.rating %></p>
+    <p>Description: <%= review.description %></p>
+  </div>
+<% end %>

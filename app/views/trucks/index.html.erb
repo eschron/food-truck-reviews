@@ -1,1 +1,12 @@
-<h1>Find a Nearby Food Truck</h1>
+<h1>All Trucks</h1>
+
+<h1> Find a Nearby Food Truck </h1>
+
+<% if @trucks.length > 0 %>
+  <% @trucks.each do |truck| %>
+    <p><%= truck.name %></p>
+    <p><%= truck.description %></p>
+  <% end %>
+<% else %>
+  <p>No Trucks yet, check back later.</p>
+<% end %>

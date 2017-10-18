@@ -34,7 +34,6 @@ class ReviewFormContainer extends Component {
     }
     this.props.handleNewReview(formPayload)
     this.handleClearForm()
-    console.log(this.state.rating)
   }
 
   handleRatingChange(value){

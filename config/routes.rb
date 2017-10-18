@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
 
   resources :trucks, only: [:index]
-  resources :trucks, only: [:index, :show]
   resources :users, only: [:show]
 
 end

@@ -1,0 +1,42 @@
+<h1>Update <%= @truck.name %></h1>
+
+<%= form_for @truck do |f| %>
+
+<% if @truck.errors.present? %>
+    <div class="error">
+      <% @truck.errors.full_messages.each do |message| %>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
+  <div>
+    <% locations = Location.all %>
+    <%= f.label :location %>
+    <select name="location">
+      <% locations.each do |l| %>
+        <option value="<%= l.id  %>"> <%= l.body %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <%= f.submit "Update Food Truck" %>
+<% end %>
+
+<%= button_to "delete", @truck, method: :delete %>

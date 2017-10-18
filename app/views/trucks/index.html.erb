@@ -9,3 +9,7 @@
 <% else %>
   <p>No Trucks yet, check back later.</p>
 <% end %>
+
+<% if current_user.admin == true %>
+<%= link_to "Add Food Truck", new_truck_path %>
+<% end %>

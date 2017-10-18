@@ -4,7 +4,7 @@
 
 <% if @trucks.length > 0 %>
   <% @trucks.each do |truck| %>
-    <li> <%= link_to truck.name, truck(restaurant[:id])%></li>
+    <li> <%= link_to truck.name, truck_path(truck)%></li>
     <p><%= truck.name %></p>
     <p><%= truck.description %></p>
   <% end %>

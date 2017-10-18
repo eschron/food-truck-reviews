@@ -1,7 +1,13 @@
 require 'rails_helper'
 RSpec.describe "User visits trucks index page" do
   scenario "User sees list of all trucks" do
-    food_truck = Truck.create(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
+    location = Location.create(body: "Copley Square")
+    food_truck = Truck.create(
+      name: 'Yummy Food',
+      description: 'The yummiest food', 
+      email: 'yummy@food.com',
+      location: location
+      )
 
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)

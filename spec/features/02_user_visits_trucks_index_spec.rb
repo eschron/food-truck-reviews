@@ -17,5 +17,6 @@ RSpec.describe "User visits trucks index page" do
     expect(page).to have_content('All Trucks')
     expect(page).to have_content(food_truck.name)
     expect(page).to have_content(food_truck.description)
+    expect(page).to have_content(food_truck.location.body)
   end
 end

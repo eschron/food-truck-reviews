@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FormContainer from './FormContainer';
+import ReviewFormContainer from './ReviewFormContainer';
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     let formDiv;
     if (this.state.addReview) {
-      formDiv = <FormContainer handleNewReview={this.handleNewReview} />
+      formDiv = <ReviewFormContainer handleNewReview={this.handleNewReview} />
     }
     return (
       <div className="row">

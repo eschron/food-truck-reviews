@@ -3,6 +3,6 @@ class Api::ReviewsController < ApplicationController
 
   def create
     binding.pry
-    review = Review.new(rating: params[:rating], description: params[:description])
+    review = Review.new(user: current_user, rating: params[:rating], description: params[:description])
   end
 end

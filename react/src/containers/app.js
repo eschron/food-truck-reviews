@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.review)
     let formDiv;
     if (this.state.addReview) {
       formDiv = <ReviewFormContainer handleNewReview={this.handleNewReview} />

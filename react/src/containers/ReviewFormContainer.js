@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReviewForm from '../components/ReviewForm'
+
 class ReviewFormContainer extends Component {
   constructor(props) {
     super(props);
@@ -9,10 +10,10 @@ class ReviewFormContainer extends Component {
       description: ''
     }
     this.handleClearForm = this.handleClearForm.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
-    // this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    //
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    
     // this.validateConsumedChange = this.validateConsumedChange.bind(this);
     // this.validateMealSelection = this.validateMealSelection.bind(this);
   }
@@ -28,20 +29,24 @@ class ReviewFormContainer extends Component {
   handleSubmit(event){
     event.preventDefault();
     let formPayload = {
-      rating: this.state.rating,
+      rating: parseInt(this.state.rating, 10),
       description: this.state.description
     }
     this.props.handleNewReview(formPayload)
     this.handleClearForm()
   }
 
-  handleRatingChange(event){
-    this.setState({rating: event.target.value})
+  handleRatingChange(value){
+    this.setState({rating: value})
+  }
+
+  handleDescriptionChange(event) {
+    this.setState({description: event.target.value})
   }
 
   render() {
     let errorDiv;
-    
+
     return (
       <div>
         {errorDiv}
@@ -49,6 +54,9 @@ class ReviewFormContainer extends Component {
           handleClearForm = {this.handleClearForm}
           handleSubmit = {this.handleSubmit}
           handleRatingChange = {this.handleRatingChange}
+          rating = {this.state.rating}
+          description = {this.state.description}
+          handleDescriptionChange = {this.handleDescriptionChange}
         />
       </div>
     )

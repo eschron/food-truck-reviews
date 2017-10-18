@@ -33,16 +33,35 @@ RSpec.describe User, type: :user do
       expect(User.all.length).to eq(0)
     end
 
-    context "user validation" do
+  end
 
-      describe User do
-        it { should have_valid(:email).when("shapaek@gmail.com") }
-        it { should_not have_valid(:email).when(nil, "", "shapaekgmail.com") }
+  context "user validation" do
 
-        it { should have_valid(:password).when("shapaek") }
-        it { should_not have_valid(:password).when(nil, "") }
-      end
+    describe User do
+      it { should have_valid(:email).when("shapaek@gmail.com") }
+      it { should_not have_valid(:email).when(nil, "", "shapaekgmail.com") }
+
+      it { should have_valid(:password).when("shapaek") }
+      it { should_not have_valid(:password).when(nil, "") }
     end
+  end
 
+  context "user updates profile" do
+    it "has an updated password" do
+      user = User.create(id: 1, email: "shapaek@gmail.com", password: "blabla")
+      User.update(user.id, email: "cbrennan31@gmail.com", password: "blabla2")
+
+      new_user = User.find(user.id)
+      expect(new_user.email).to eq("cbrennan31@gmail.com")
+      expect(new_user.encrypted_password).not_to eq(user.encrypted_password)
+    end
+  end
+
+  context "user deletes profile" do
+    it "no longer exists" do
+      user = User.create(email: "shapaek@gmail.com", password: "blabla")
+      user.delete
+      expect(User.all.length).to eq(0)
+    end
   end
 end

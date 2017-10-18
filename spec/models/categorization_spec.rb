@@ -7,7 +7,13 @@ RSpec.describe 'categorization' do
   context 'Create an association between category and food truck' do
     it 'has both truck and category info' do
       cat = Category.create(cuisine: 'Mexican')
-      foodtruck = Truck.create(name: 'Yummy Food', description: 'The yummiest food', email: 'yummy@food.com')
+      location = Location.create(body: "Copley Square")
+      foodtruck = Truck.create(
+        name: 'Yummy Food',
+        description: 'The yummiest food',
+        email: 'yummy@food.com',
+        location: location
+      )
 
       Categorization.create(truck: foodtruck, category: cat)
 

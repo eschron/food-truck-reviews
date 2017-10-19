@@ -4,10 +4,8 @@ Rails.application.routes.draw do
     registrations: "registrations",
     sessions: "sessions"}
 
-  root "home#index"
+    root "home#index"
 
-
-  resources :trucks, only: [:index, :show]
-  resources :users, only: [:show]
-
-end
+    resources :users, only: [:show]
+    resources :trucks
+  end

@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show]
     resources :trucks
+    resources :search, only: [:index]
   end

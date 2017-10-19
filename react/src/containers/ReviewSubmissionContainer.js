@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
 import ReviewFormContainer from './ReviewFormContainer';
+import Reviews from '../components/Reviews';
 
 class ReviewSubmissionContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      allReviews: [],
       review: {},
       addReview: false
     }
-    this.handleNewReview= this.handleNewReview.bind(this);
-    this.handleClick= this.handleClick.bind(this);
+    this.handleNewReview = this.handleNewReview.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.getReviews = this.getReviews.bind(this);
+  }
+
+  getReviews() {
+    let that = this;
+    fetch('/api/reviews.json')
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        that.setState({ allReviews: body.reviews });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
+  componentDidMount() {
+    this.getReviews()
   }
 
   handleNewReview(submission) {
@@ -34,6 +60,13 @@ class ReviewSubmissionContainer extends Component {
           throw(error);
         }
       })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          allReviews: body.reviews,
+          review: {}
+        });
+      })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
@@ -54,6 +87,7 @@ class ReviewSubmissionContainer extends Component {
           <h1 className="text-center"></h1>
           {formDiv}
         </div>
+        <Reviews reviews = {this.state.allReviews} />
       </div>
     )
   }

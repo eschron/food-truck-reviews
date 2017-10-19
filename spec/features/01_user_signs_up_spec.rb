@@ -11,6 +11,7 @@ feature "User signs up" do
     fill_in 'Email', with: "shapaek@gmail.com"
     fill_in 'Password', with: "blabla"
     fill_in 'Password confirmation', with: "blabla"
+    attach_file('Avatar', File.absolute_path('public/test/test.jpeg'))
     click_on "Sign up"
 
     expect(page).to have_content "Welcome! You have signed up successfully"

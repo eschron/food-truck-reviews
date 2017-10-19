@@ -7,6 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'carrierwave', '~> 1.2.0'
+# gem 'fog'
 gem 'fog-aws'
 
 group :development do
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
+  gem "dotenv-rails"
 end
 
 group :test do

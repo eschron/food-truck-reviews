@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users,
     skip: [:passwords],
-    controllers: { registrations: "registrations"}
+    controllers: { registrations: "registrations", sessions: "sessions"}
 
   root "home#index"
 
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :trucks, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
   end
+  resources :users, only: [:show]
 end

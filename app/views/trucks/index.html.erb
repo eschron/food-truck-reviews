@@ -4,8 +4,12 @@
 
 <% if @trucks.length > 0 %>
   <% @trucks.each do |truck| %>
-    <li> <%= link_to truck.name, truck_path(truck)%></li>
+    <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
   <% end %>
 <% else %>
   <p>No Trucks yet, check back later.</p>
+<% end %>
+
+<% if current_user.admin == true %>
+<%= link_to "Add Food Truck", new_truck_path %>
 <% end %>

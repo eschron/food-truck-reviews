@@ -13,7 +13,7 @@ const ReviewForm = props => {
           isStateful={true}
           value={props.rating}
           onChange={props.handleRatingChange}
-          fireOnMount={false}
+          fireOnMount={true}
         />
       </label>
 

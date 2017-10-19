@@ -14,6 +14,23 @@ class App extends Component {
 
   handleNewReview(submission) {
     this.setState({review: submission})
+    debugger
+    fetch('/api/reviews', {
+      credentials: 'same-origin',
+      method: 'POST',
+      body: JSON.stringify(submission),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+              error = new Error(errorMessage);
+          throw(error);
+        }
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleClick() {

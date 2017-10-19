@@ -10,7 +10,7 @@ const ReviewForm = props => {
         <ReactRadioButtonGroup
           options={['1', '2', '3', '4', '5']}
           name='rating'
-          isStateful={true}
+          isStateful={false}
           value={props.rating}
           onChange={props.handleRatingChange}
           fireOnMount={true}

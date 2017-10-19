@@ -13,7 +13,7 @@ class ReviewFormContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    
+
     // this.validateConsumedChange = this.validateConsumedChange.bind(this);
     // this.validateMealSelection = this.validateMealSelection.bind(this);
   }

@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations"}
   root "home#index"
+  namespace :api do
+    resources :trucks, only: [:index, :show] do
+      resources :reviews, only: [:create, :index]
+    end
+  end
   resources :trucks, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
   end

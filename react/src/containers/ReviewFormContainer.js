@@ -5,7 +5,7 @@ class ReviewFormContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      errors: {},
+      ratingErrors: '',
       rating: null,
       description: ''
     }
@@ -20,7 +20,7 @@ class ReviewFormContainer extends Component {
 
   handleClearForm() {
     this.setState({
-      errors: {},
+      ratingErrors: '',
       rating: null,
       description: ''
     })
@@ -28,16 +28,21 @@ class ReviewFormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    let formPayload = {
-      rating: parseInt(this.state.rating, 10),
-      description: this.state.description
+    if (this.state.rating == null) {
+      this.setState({ratingErrors: 'Please select a rating.'})
     }
-    this.props.handleNewReview(formPayload)
-    this.handleClearForm()
+    else {
+      let formPayload = {
+        rating: parseInt(this.state.rating, 10),
+        description: this.state.description
+      }
+      this.props.handleNewReview(formPayload)
+      this.handleClearForm()
+    }
   }
 
   handleRatingChange(value){
-    this.setState({rating: value})
+    this.setState({ratingErrors: '', rating: value})
   }
 
   handleDescriptionChange(event) {
@@ -46,10 +51,12 @@ class ReviewFormContainer extends Component {
 
   render() {
     let errorDiv;
-
+    if (this.state.ratingErrors != '') {
+      errorDiv = this.state.ratingErrors
+    }
     return (
       <div>
-        {errorDiv}
+        <p>{errorDiv}</p>
         <ReviewForm
           handleClearForm = {this.handleClearForm}
           handleSubmit = {this.handleSubmit}

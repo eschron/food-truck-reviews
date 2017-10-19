@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReviewFormContainer from './ReviewFormContainer';
 
-class App extends Component {
+class ReviewSubmissionContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,11 +14,15 @@ class App extends Component {
 
   handleNewReview(submission) {
     this.setState({review: submission})
-    debugger
+    let id = this.props.params.id
+    let newReview = {truck_id: id,
+      rating: submission.rating,
+      description: submission.description
+    }
     fetch('/api/reviews', {
       credentials: 'same-origin',
       method: 'POST',
-      body: JSON.stringify(submission),
+      body: JSON.stringify(newReview),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => {
@@ -55,4 +59,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ReviewSubmissionContainer;

@@ -32,14 +32,14 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User visits search page and sees list of food trucks" do
-    visit search_index_path
+    visit search_path
 
     expect(page).to have_link("Mexican Truck")
     expect(page).to have_link("Yummy Food")
   end
 
   scenario "User searches for a truck by part of its name" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "yummy"
     click_on "Search"
@@ -48,7 +48,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck by its location" do
-    visit search_index_path
+    visit search_path
 
     select "Copley", from: "location_id"
     click_on "Search"
@@ -57,7 +57,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck by its category" do
-    visit search_index_path
+    visit search_path
 
     choose "Mexican"
     click_on "Search"
@@ -66,7 +66,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck by name and location" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "yummy"
     select "Back Bay", from: "location_id"
@@ -77,7 +77,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck by name and category" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "mexican"
     choose "Mexican"
@@ -88,7 +88,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck by location and category" do
-    visit search_index_path
+    visit search_path
 
     select "Copley", from: "location_id"
     choose "Mexican"
@@ -99,7 +99,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User search for a truck by location, category, and name" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "yummy"
     select "Back Bay", from: "location_id"
@@ -111,7 +111,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User searches for a truck that does not exist" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "yummy"
     select "Copley", from: "location_id"
@@ -124,7 +124,7 @@ RSpec.describe "User visits trucks search page" do
   end
 
   scenario "User selects a truck listed in the results to view more details" do
-    visit search_index_path
+    visit search_path
 
     fill_in "search", with: "yummy"
     click_on "Search"

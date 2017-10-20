@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @locations = Location.all
     @categories = Category.all

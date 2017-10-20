@@ -12,6 +12,7 @@
     <% if user_signed_in? %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       <%= link_to('Edit Profile', edit_user_registration_path) %>
+      <%= link_to('Search All Trucks', search_index_path) %>
     <% end %>
     <% if flash %>
       <p class="notice"><%= notice %></p>

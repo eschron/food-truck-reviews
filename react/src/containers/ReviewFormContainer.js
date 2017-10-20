@@ -13,9 +13,6 @@ class ReviewFormContainer extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-
-    // this.validateConsumedChange = this.validateConsumedChange.bind(this);
-    // this.validateMealSelection = this.validateMealSelection.bind(this);
   }
 
   handleClearForm() {
@@ -52,11 +49,11 @@ class ReviewFormContainer extends Component {
   render() {
     let errorDiv;
     if (this.state.ratingErrors != '') {
-      errorDiv = this.state.ratingErrors
+      errorDiv = <p>{this.state.ratingErrors}</p>
     }
     return (
       <div>
-        <p>{errorDiv}</p>
+        {errorDiv}
         <ReviewForm
           handleClearForm = {this.handleClearForm}
           handleSubmit = {this.handleSubmit}

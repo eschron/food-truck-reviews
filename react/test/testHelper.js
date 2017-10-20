@@ -25,7 +25,7 @@ let requireAll = requireContext => {
 requireAll(require.context('./', true, /^((?!testHelper).)*\.jsx?$/));
 
 // require all js files except main.js in the src folder
-requireAll(require.context('../src/', true, /^((?!main).)*\.jsx?$/));
+requireAll(require.context('../src/', true, /^((?!main).)*\.js?$/));
 
 // output to the browser's console when the tests run
 console.info(`TESTS RAN AT ${new Date().toLocaleTimeString()}`);

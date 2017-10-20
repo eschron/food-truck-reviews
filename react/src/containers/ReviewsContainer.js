@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReviewFormContainer from './ReviewFormContainer';
 import Reviews from '../components/Reviews';
 
-class ReviewSubmissionContainer extends Component {
+class ReviewsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +64,8 @@ class ReviewSubmissionContainer extends Component {
       .then(body => {
         this.setState({
           allReviews: body.reviews,
-          review: {}
+          review: {},
+          addReview: false
         });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
@@ -82,7 +83,7 @@ class ReviewSubmissionContainer extends Component {
     }
     return (
       <div className="row">
-        <button onClick={this.handleClick}>Add a review</button>
+        <input type="button" value="Add a review" onClick={this.handleClick} />
         <div className="small-9 small-centered columns">
           <h1 className="text-center"></h1>
           {formDiv}
@@ -93,4 +94,4 @@ class ReviewSubmissionContainer extends Component {
   }
 }
 
-export default ReviewSubmissionContainer;
+export default ReviewsContainer;

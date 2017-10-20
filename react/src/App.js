@@ -1,11 +1,11 @@
 import React from 'react';
 import { Router, browserHistory, Route, IndexRoute } from 'react-router';
-import ReviewSubmissionContainer from './containers/ReviewSubmissionContainer'
+import ReviewsContainer from './containers/ReviewsContainer'
 
 const App = props => {
   return(
     <Router history={browserHistory}>
-      <Route path="trucks/:id" component = {ReviewSubmissionContainer} />
+      <Route path="trucks/:id" component = {ReviewsContainer} />
     </Router>
   )
 }

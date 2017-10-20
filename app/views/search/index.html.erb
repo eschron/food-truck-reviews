@@ -4,18 +4,15 @@
   <p>
     <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
     <%= select_tag "location_id", options_from_collection_for_select(Location.all, "id", "body"), :include_blank => "Select Location" %>
-
     <% @categories.each do |category| %>
       <label>
-        <%= check_box_tag("category", category.cuisine) %>
+        <%= radio_button_tag("category", category.cuisine) %>
         <%=category.cuisine %>
       </label>
     <% end %>
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-
-
 <% @trucks.each do |truck| %>
   <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
 <% end %>

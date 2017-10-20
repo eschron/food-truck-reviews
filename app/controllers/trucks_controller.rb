@@ -7,7 +7,6 @@ class TrucksController < ApplicationController
 
   def show
     @truck = Truck.find(params[:id])
-    @reviews = @truck.reviews
   end
 
   def new

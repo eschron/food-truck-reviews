@@ -17,7 +17,7 @@ class ReviewsContainer extends Component {
 
   getReviews() {
     let that = this;
-    fetch('/api/reviews.json')
+    fetch(`/api/trucks/${this.props.params.id}/reviews.json`)
       .then(response => {
         if (response.ok) {
           return response;
@@ -41,7 +41,8 @@ class ReviewsContainer extends Component {
   handleNewReview(submission) {
     this.setState({review: submission})
     let id = this.props.params.id
-    let newReview = {truck_id: id,
+    let newReview = {
+      truck_id: id,
       rating: submission.rating,
       description: submission.description
     }

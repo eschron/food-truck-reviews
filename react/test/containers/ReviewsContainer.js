@@ -12,7 +12,8 @@ describe('ReviewsContainer', () => {
   beforeEach(() => {
     jasmineEnzyme();
     spyOn(ReviewsContainer.prototype, 'handleClick').and.callThrough();
-    wrapper = mount(<ReviewsContainer  />);
+    let params = {id: 434324}
+    wrapper = mount(<ReviewsContainer params={ params } />);
   });
 
   it('should have the specified initial state', () => {
@@ -38,6 +39,6 @@ describe('ReviewsContainer', () => {
   it('should render a review form when button clicked', () => {
     wrapper.find('input').simulate('click');
     expect(wrapper.find(ReviewFormContainer)).toBePresent();
+    wrapper.simulate('click')
   })
-
 })

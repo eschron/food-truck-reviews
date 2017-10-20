@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :api do
-    resources :reviews, only: [:create, :index]
+    resources :reviews, only: [:create]
+
+    resources :trucks, only: [:show] do
+      resources :reviews, only: [:index]
+    end
   end
 
-  resources :trucks do
-    resources :reviews, only: [:new, :create]
-  end
+  resources :trucks
+  
   resources :users, only: [:show]
 end

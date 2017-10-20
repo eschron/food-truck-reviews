@@ -43,7 +43,5 @@ describe('ReviewFormContainer', () => {
     form.simulate('submit')
 
     expect(wrapper.find(ReviewForm)).toBePresent();
-    // how to simulate fetch calls? is that necessary? that's hard and that's
-    // why the test is failing.
   })
 })

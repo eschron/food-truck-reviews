@@ -1,8 +1,6 @@
 class Api::ReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
-
-  
   def create
     review = Review.new(
       truck_id: params[:truck_id],
@@ -10,7 +8,6 @@ class Api::ReviewsController < ApplicationController
       rating: params[:rating],
       description: params[:description]
     )
-
     if review.save
       render_reviews
     else
@@ -24,6 +21,6 @@ class Api::ReviewsController < ApplicationController
 
   private
   def render_reviews
-    render json: { reviews: Review.all.order(created_at: :desc) }    
+    render json: { reviews: Review.all.order(created_at: :desc) }
   end
 end

@@ -1,6 +1,8 @@
 class Api::ReviewsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
+
+  
   def create
     review = Review.new(
       truck_id: params[:truck_id],
@@ -10,13 +12,18 @@ class Api::ReviewsController < ApplicationController
     )
 
     if review.save
-      render json: { reviews: Review.all }
+      render_reviews
     else
       render json: { error: review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def index
-    render json: { reviews: Review.all }
+    render_reviews
+  end
+
+  private
+  def render_reviews
+    render json: { reviews: Review.all.order(created_at: :desc) }    
   end
 end

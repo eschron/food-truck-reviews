@@ -4,7 +4,7 @@ RSpec.describe "User visits trucks index page" do
     location = Location.create(body: "Copley Square")
     food_truck = Truck.create(
       name: 'Yummy Food',
-      description: 'The yummiest food', 
+      description: 'The yummiest food',
       email: 'yummy@food.com',
       location: location
       )

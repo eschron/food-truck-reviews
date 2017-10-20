@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Admin adds new truck" do
+RSpec.describe "Admin updates truck" do
   before(:each) do
     @user = FactoryGirl.create(:user)
     @user.admin = true

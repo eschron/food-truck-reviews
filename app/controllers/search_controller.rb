@@ -2,8 +2,9 @@ class SearchController < ApplicationController
   def index
     @locations = Location.all
     @categories = Category.all
-    if params[:search] != "" && params[:location_id] != "" && params[:category] != nil
-
+    if params[:search] == nil && params[:location_id] == nil && params[:category] == nil
+      @trucks = Truck.all
+    elsif params[:search] != "" && params[:location_id] != "" && params[:category] != nil
       like_keyword = "%#{params[:search]}%"
       trucks1 = Truck.where("lower(name) LIKE ?", like_keyword.downcase).where(location_id: params[:location_id])
       @trucks = trucks1.joins(categorizations: :category).where(categories: {cuisine: params[:category]})

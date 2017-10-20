@@ -13,6 +13,10 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
 <% end %>
-<% @trucks.each do |truck| %>
-  <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
+<% if @trucks.length > 0 %>
+  <% @trucks.each do |truck| %>
+    <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
+  <% end %>
+<% else %>
+  <p>No trucks match this search.</p>
 <% end %>

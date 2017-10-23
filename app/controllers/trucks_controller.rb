@@ -16,6 +16,7 @@ class TrucksController < ApplicationController
 
   def create
     @truck = Truck.new(truck_params)
+    @truck.user = current_user
     @truck.location = Location.find(params[:location])
 
     if @truck.save
@@ -32,6 +33,7 @@ class TrucksController < ApplicationController
 
   def update
     @truck = Truck.find(params[:id])
+    @truck.user = current_user
     @truck.update(truck_params)
     @truck.location = Location.find(params[:location])
 

@@ -8,9 +8,13 @@ Rails.application.routes.draw do
   namespace :api do
     resources :reviews, only: [:create]
 
+    resources :users, only: [:show]
+    
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]
     end
+
+    get "/search", to: "trucks#search"
   end
 
   resources :trucks

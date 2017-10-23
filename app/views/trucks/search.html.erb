@@ -1,0 +1,22 @@
+<h1>Search Trucks</h1>
+
+<%= form_tag(search_path, :method => "get") do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
+    <%= select_tag "location_id", options_from_collection_for_select(Location.all, "id", "body"), :include_blank => "Select Location" %>
+    <% @categories.each do |category| %>
+      <label>
+        <%= radio_button_tag("category", category.cuisine) %>
+        <%=category.cuisine %>
+      </label>
+    <% end %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<% if @trucks.length > 0 %>
+  <% @trucks.each do |truck| %>
+    <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
+  <% end %>
+<% else %>
+  <p>No trucks match this search.</p>
+<% end %>

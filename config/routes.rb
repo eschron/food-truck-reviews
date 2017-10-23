@@ -6,13 +6,17 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :api do
-    resources :reviews, only: [:create, :index]
-  end
+    resources :reviews, only: [:create]
 
-  resources :users, only: [:show]
-  resources :trucks
+
+    resources :trucks, only: [:show] do
+      resources :reviews, only: [:index]
+    end
+  end
 
   get "/search", to: "trucks#search"
 
-  resources :users, only: [:show]
+  resources :trucks
+
+  resources :users, only: [:show, :index, :destroy]
 end

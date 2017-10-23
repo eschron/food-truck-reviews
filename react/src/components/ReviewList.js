@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Reviews = props => {
+const ReviewList = props => {
   let reviews = props.reviews.map (review => {
     return(
       <div key={review.id}>
@@ -20,4 +20,4 @@ const Reviews = props => {
   )
 }
 
-export default Reviews;
+export default ReviewList;

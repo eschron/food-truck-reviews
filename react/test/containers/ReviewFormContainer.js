@@ -37,7 +37,6 @@ describe('ReviewFormContainer', () => {
   });
 
   it('should submit a new review', () => {
-
     let form = wrapper.find(ReviewForm).find('form');
 
     form.simulate('submit')

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReviewFormContainer from './ReviewFormContainer';
-import Reviews from '../components/Reviews';
+import ReviewList from '../components/ReviewList';
 
 class ReviewsContainer extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class ReviewsContainer extends Component {
 
   getReviews() {
     let that = this;
-    fetch('/api/reviews.json')
+    fetch(`/api/trucks/${this.props.params.id}/reviews.json`)
       .then(response => {
         if (response.ok) {
           return response;
@@ -41,7 +41,8 @@ class ReviewsContainer extends Component {
   handleNewReview(submission) {
     this.setState({review: submission})
     let id = this.props.params.id
-    let newReview = {truck_id: id,
+    let newReview = {
+      truck_id: id,
       rating: submission.rating,
       description: submission.description
     }
@@ -88,7 +89,7 @@ class ReviewsContainer extends Component {
           <h1 className="text-center"></h1>
           {formDiv}
         </div>
-        <Reviews reviews = {this.state.allReviews} />
+        <ReviewList reviews = {this.state.allReviews} />
       </div>
     )
   }

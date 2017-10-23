@@ -6,8 +6,8 @@ RSpec.describe "Admin updates truck" do
     @user.admin = true
     login_as(@user, :scope => :user)
 
-    @south_station = Location.create(body: "South Station")
-    @north_station = Location.create(body: "North Station")
+    @south_station = Location.create!(body: "South Station")
+    @north_station = Location.create!(body: "North Station")
     @my_truck = FactoryGirl.create(:truck, location: @south_station)
   end
 

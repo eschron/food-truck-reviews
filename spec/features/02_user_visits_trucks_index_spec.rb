@@ -1,10 +1,10 @@
 require 'rails_helper'
 RSpec.describe "User visits trucks index page" do
   scenario "User sees list of all trucks" do
-    location = Location.create(body: "Copley Square")
-    food_truck = Truck.create(
+    location = Location.create!(body: "Copley Square")
+    food_truck = Truck.create!(
       name: 'Yummy Food',
-      description: 'The yummiest food', 
+      description: 'The yummiest food',
       email: 'yummy@food.com',
       location: location
       )

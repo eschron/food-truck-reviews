@@ -50,19 +50,4 @@ feature 'User updates account info' do
     expect(page).to have_content("Password confirmation doesn't match Password")
     expect(page).not_to have_content("My Profile")
   end
-
-  # scenario 'user uploads profile picture' do
-  #   user = FactoryGirl.create(:user)
-  #   login_as(user, :scope => :user)
-
-  #   visit "/"
-  #   click_on "Edit Profile"
-
-  #   attach_file('ok', File.absolute_path('./fileset/publisher/upload_pic.jpg'))
-
-
-  #   click_on "Update"
-
-
-  # end
 end

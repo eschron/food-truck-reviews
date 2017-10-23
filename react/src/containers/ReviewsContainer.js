@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReviewFormContainer from './ReviewFormContainer';
-import Reviews from '../components/Reviews';
+import ReviewList from '../components/ReviewList';
 
 class ReviewsContainer extends Component {
   constructor(props) {
@@ -89,7 +89,7 @@ class ReviewsContainer extends Component {
           <h1 className="text-center"></h1>
           {formDiv}
         </div>
-        <Reviews reviews = {this.state.allReviews} />
+        <ReviewList reviews = {this.state.allReviews} />
       </div>
     )
   }

@@ -25,7 +25,7 @@ class ReviewFormContainer extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    if (this.state.rating == null) {
+    if (this.state.rating === null) {
       this.setState({ratingErrors: 'Please select a rating.'})
     }
     else {
@@ -48,7 +48,7 @@ class ReviewFormContainer extends Component {
 
   render() {
     let errorDiv;
-    if (this.state.ratingErrors != '') {
+    if (this.state.ratingErrors !== '') {
       errorDiv = <p>{this.state.ratingErrors}</p>
     }
     return (

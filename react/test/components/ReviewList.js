@@ -1,7 +1,7 @@
 import React from 'react';
-import Reviews from '../../src/components/Reviews';
+import ReviewList from '../../src/components/ReviewList';
 
-describe('Reviews', () => {
+describe('ReviewList', () => {
   let wrapper;
   let reviews = [
     {
@@ -12,7 +12,7 @@ describe('Reviews', () => {
 
   beforeEach(() => {
     jasmineEnzyme();
-    wrapper = mount(<Reviews reviews={reviews}/>);
+    wrapper = mount(<ReviewList reviews={reviews}/>);
   });
 
   it('should render a heading', () => {

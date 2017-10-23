@@ -1,6 +1,6 @@
 import ReviewsContainer from '../../src/containers/ReviewsContainer';
 import ReviewFormContainer from '../../src/containers/ReviewFormContainer';
-import Reviews from '../../src/components/Reviews';
+import ReviewList from '../../src/components/ReviewList';
 
 import { mount } from 'enzyme';
 import jasmineEnzyme from 'jasmine-enzyme';
@@ -25,8 +25,8 @@ describe('ReviewsContainer', () => {
   });
 
   it('should render a Reviews component with props', () => {
-    expect(wrapper.find(Reviews)).toBePresent();
-    expect(wrapper.find(Reviews).props()).toEqual({
+    expect(wrapper.find(ReviewList)).toBePresent();
+    expect(wrapper.find(ReviewList).props()).toEqual({
       reviews: wrapper.state().allReviews
     })
   })

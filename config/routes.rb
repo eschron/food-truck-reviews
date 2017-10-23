@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :api do
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create] do
+      resources :votes, only: [:create, :index]
+    end
 
     resources :users, only: [:show]
-    
+
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]
     end
@@ -18,6 +20,6 @@ Rails.application.routes.draw do
   get "/search", to: "trucks#search"
 
   resources :trucks
-  
+
   resources :users, only: [:show]
 end

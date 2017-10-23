@@ -13,9 +13,9 @@ Rails.application.routes.draw do
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]
     end
-
-    get "/search", to: "trucks#search"
   end
+
+  get "/search", to: "trucks#search"
 
   resources :trucks
   

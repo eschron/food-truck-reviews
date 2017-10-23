@@ -47,6 +47,7 @@ class TrucksController < ApplicationController
     @truck = Truck.find(params[:id])
 
     if Truck.destroy(@truck.id)
+      Review.where(truck_id: params[:id]).destroy_all
       flash[:notice] = "Food Truck successfully deleted"
       redirect_to trucks_path
     else

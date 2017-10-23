@@ -9,6 +9,7 @@ class Api::ReviewsController < ApplicationController
       description: params[:description]
     )
     if review.save
+      ReviewMailer.new_review(review).deliver_now
       render_reviews
     else
       render json: { error: review.errors.full_messages }, status: :unprocessable_entity

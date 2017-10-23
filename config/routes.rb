@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     root "home#index"
 
-    resources :users, only: [:show]
+    resources :users, only: [:show, :index, :destroy]
     resources :trucks
 
     get "/search", to: "trucks#search"

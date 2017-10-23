@@ -17,6 +17,20 @@ class Api::ReviewsController < ApplicationController
     render_reviews(truck)
   end
 
+  def show
+    render json: { review: Review.find(params[:id])}
+  end
+
+  def destroy
+    binding.pry
+    if current_user.admin == true
+      review = Review.find(params[:id])
+      Review.delete(review)
+    else
+      redirect_to review.truck
+    end
+  end
+
   private
   def review_params()
     params.require(:review).permit(:truck_id, :rating, :description)

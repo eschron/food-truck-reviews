@@ -4,13 +4,15 @@ export default class Review extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      vote_count: 0
+      vote_count: 0,
+      user_id: null
     }
 
     this.vote = this.vote.bind(this)
     this.voteUp = this.voteUp.bind(this)
     this.voteDown = this.voteDown.bind(this)
     this.getVoteCount = this.getVoteCount.bind(this)
+    this.deleteReview = this.deleteReview.bind(this)
   }
 
   vote(value) {
@@ -54,8 +56,23 @@ export default class Review extends Component {
       })
   }
 
+  deleteReview() {
+    fetch(`/api/reviews/${this.props.id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'same-origin'
+    })
+    .then(res => {
+      console.log(res)
+    })
+  }
+
   componentDidMount() {
     this.getVoteCount()
+    let id = document.getElementById('app').dataset.currentUserID
+    this.setState({
+      user_id: id
+    })
   }
 
   render() {
@@ -73,6 +90,7 @@ export default class Review extends Component {
           </li>
           <li>Rating: {this.props.rating}</li>
           <li>Description: {this.props.description}</li>
+          <button onClick={this.deleteReview}>Delete</button>
         </ul>
       </div>
     )

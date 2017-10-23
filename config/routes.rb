@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
 
     resources :users, only: [:show]
-    
+
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]
     end
@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   get "/search", to: "trucks#search"
 
   resources :trucks
-  
-  resources :users, only: [:show]
+
+  resources :users, only: [:show, :index, :destroy]
 end

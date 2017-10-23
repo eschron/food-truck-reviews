@@ -10,6 +10,9 @@
 # Ignore coveralls
 /coverage
 
+# Ignore test uploads
+/public/uploads/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -21,3 +24,6 @@
 
 .byebug_history
 .env
+
+/app/assets/javascripts/bundle.js
+/react/coverage

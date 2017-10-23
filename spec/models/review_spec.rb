@@ -16,6 +16,14 @@ RSpec.describe 'review' do
     it 'has a truck id' do
       expect(Review.new(rating: 3, user: @user, truck: @foodtruck).truck).to eq(@foodtruck)
     end
+    it 'sends an email to the user' do
+      ActionMailer::Base.deliveries.clear
+      @user.update(email: "cbrennan31@gmail.com")
+      @foodtruck.update(user: @user)
+      review = Review.create(rating: 3, user: @user, truck: @foodtruck)
+      ReviewMailer.new_review(review).deliver_now
+      expect(ActionMailer::Base.deliveries.count).to eq(1)
+    end
   end
 
   context 'creating review with missing information' do

@@ -9,4 +9,8 @@ class User < ApplicationRecord
   has_many :trucks
   has_many :votes
 
+  validates :first_name, presence: true
+  validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :last_name, presence: true
 end

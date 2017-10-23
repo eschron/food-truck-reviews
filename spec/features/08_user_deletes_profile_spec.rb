@@ -6,6 +6,7 @@ feature 'User deletes account' do
     login_as(user, :scope => :user)
 
     visit "/"
+    click_on "Profile"
     click_on "Edit Profile"
 
     click_on "Cancel my account"

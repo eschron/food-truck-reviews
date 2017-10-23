@@ -5,7 +5,7 @@ RSpec.describe "Admin adds new truck" do
     @user = FactoryGirl.create(:user)
     @user.admin = true
     login_as(@user, :scope => :user)
-    Location.create(body: "South Station")
+    Location.create!(body: "South Station")
   end
 
   scenario "Admin visits new truck page" do

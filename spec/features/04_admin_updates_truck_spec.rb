@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe "Admin adds new truck" do
+RSpec.describe "Admin updates truck" do
   before(:each) do
     @user = FactoryGirl.create(:user)
     @user.admin = true
     login_as(@user, :scope => :user)
 
-    @south_station = Location.create(body: "South Station")
-    @north_station = Location.create(body: "North Station")
-    @my_truck = Truck.create(name: "Old Name", description: "Old description", email: "old@email.com", location: @south_station)
+    @south_station = Location.create!(body: "South Station")
+    @north_station = Location.create!(body: "North Station")
+    @my_truck = Truck.create!(name: "Old Name", description: "Old description", email: "old@email.com", location: @south_station)
   end
 
   scenario "Admin visits truck edit page" do

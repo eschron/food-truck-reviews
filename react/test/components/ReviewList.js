@@ -21,7 +21,5 @@ describe('ReviewList', () => {
 
   it('should render the reviews', () => {
     expect(wrapper.find('ul').length).toEqual(1);
-    expect(wrapper.find('li').at(0).text()).toEqual('Rating: 5');
-    expect(wrapper.find('li').at(1).text()).toEqual('Description: the description');
   });
 })

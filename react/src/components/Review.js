@@ -59,6 +59,10 @@ export default class Review extends Component {
   }
 
   render() {
+    let buttonDiv;
+    if (this.props.userID == this.props.currentUserID) {
+      buttonDiv = <input type='button' value = "Edit Review" />
+    }
     return(
       <div>
         <ul>
@@ -73,7 +77,11 @@ export default class Review extends Component {
           </li>
           <li>Rating: {this.props.rating}</li>
           <li>Description: {this.props.description}</li>
+
         </ul>
+
+        {buttonDiv}
+        <br/>---<br/>
       </div>
     )
   }

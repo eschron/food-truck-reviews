@@ -8,7 +8,8 @@ class ReviewsContainer extends Component {
     this.state = {
       allReviews: [],
       review: {},
-      addReview: false
+      addReview: false,
+      currentUserID: null
     }
     this.handleNewReview = this.handleNewReview.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -17,6 +18,9 @@ class ReviewsContainer extends Component {
 
   getReviews() {
     let that = this;
+    let id = document.getElementById('app').dataset.currentuserid;
+    id = parseInt(id, 10)
+    debugger
     fetch(`/api/trucks/${this.props.params.id}/reviews.json`)
       .then(response => {
         if (response.ok) {
@@ -29,7 +33,10 @@ class ReviewsContainer extends Component {
       })
       .then(response => response.json())
       .then(body => {
-        that.setState({ allReviews: body.reviews });
+        that.setState({
+          allReviews: body.reviews,
+          currentUserID: id
+        });
       })
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
@@ -77,10 +84,11 @@ class ReviewsContainer extends Component {
   }
 
   render() {
-    console.log(this.state.review)
     let formDiv;
     if (this.state.addReview) {
-      formDiv = <ReviewFormContainer handleNewReview={this.handleNewReview} />
+      formDiv = <ReviewFormContainer
+        handleNewReview={this.handleNewReview}
+      />
     }
     return (
       <div className="row">
@@ -89,7 +97,10 @@ class ReviewsContainer extends Component {
           <h1 className="text-center"></h1>
           {formDiv}
         </div>
-        <ReviewList reviews = {this.state.allReviews} />
+        <ReviewList
+          currentUserID = {this.state.currentUserID}
+          reviews = {this.state.allReviews}
+        />
       </div>
     )
   }

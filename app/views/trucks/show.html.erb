@@ -2,8 +2,7 @@
 
 <p>Description: <%= @truck.description %></p>
 <p>Location: <%= @truck.location.body %></p>
-
-<div id='app'></div>
+<div id="app" data-currentuserid="<%= current_user.id %>"></div>
 
 <% if current_user.admin %>
   <%= link_to "Edit Truck", edit_truck_path(@truck) %>

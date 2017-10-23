@@ -21,5 +21,5 @@ Rails.application.routes.draw do
 
   resources :trucks
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :index, :destroy]
 end

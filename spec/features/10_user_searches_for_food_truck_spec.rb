@@ -8,13 +8,13 @@ RSpec.describe "User visits trucks search page" do
     yummy = Truck.create(
       name: "Yummy Food",
       description: "This is delicious",
-      email: "cbrennan31@gmail.com",
+      user: FactoryGirl.create(:user),
       location: back_bay
     )
     mexican_truck = Truck.create(
       name: "Mexican Truck",
       description: "This is also delicious",
-      email: "shapaek@gmail.com",
+      user: FactoryGirl.create(:user),
       location: copley
     )
     Categorization.create(truck: yummy, category: asian)

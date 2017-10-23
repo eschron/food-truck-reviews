@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       resources :votes, only: [:create, :index]
     end
 
-    resources :users, only: [:show]
 
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]

@@ -45,7 +45,13 @@ RSpec.describe User, type: :user do
 
   context "user updates profile" do
     it "has an updated password" do
-      user = User.create(id: 1, email: "shapaek@gmail.com", password: "blabla")
+      user = User.create(id: 1,
+        email: "blablabla@gmail.com",
+        password: "blabla",
+        first_name: "Ben",
+        last_name: "Jammin"
+      )
+
       User.update(user.id, email: "cbrennan31@gmail.com", password: "blabla2")
 
       new_user = User.find(user.id)
@@ -56,7 +62,12 @@ RSpec.describe User, type: :user do
 
   context "user deletes profile" do
     it "no longer exists" do
-      user = User.create(email: "shapaek@gmail.com", password: "blabla")
+      user = User.create(id: 1,
+        email: "blablabla@gmail.com",
+        password: "blabla",
+        first_name: "Ben",
+        last_name: "Jammin"
+      )
       user.delete
       expect(User.all.length).to eq(0)
     end

@@ -8,12 +8,7 @@ RSpec.describe 'categorization' do
     it 'has both truck and category info' do
       cat = Category.create(cuisine: 'Mexican')
       location = Location.create(body: "Copley Square")
-      foodtruck = Truck.create(
-        name: 'Yummy Food',
-        description: 'The yummiest food',
-        email: 'yummy@food.com',
-        location: location
-      )
+      foodtruck = FactoryGirl.create(:truck, location: location)
 
       Categorization.create(truck: foodtruck, category: cat)
 

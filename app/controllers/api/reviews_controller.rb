@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
   def create
     review = Review.new(review_params)
@@ -22,10 +22,11 @@ class Api::ReviewsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if current_user.admin == true
       review = Review.find(params[:id])
+      truck = review.truck
       Review.delete(review)
+      render_reviews(truck)
     else
       redirect_to review.truck
     end

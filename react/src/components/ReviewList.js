@@ -5,6 +5,7 @@ const ReviewList = props => {
   let reviews = props.reviews.map (review => {
     return(
       <Review
+        loadReviews={props.loadReviews}
         key={review.id}
         id={review.id}
         rating={review.rating}

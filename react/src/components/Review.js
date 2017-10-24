@@ -63,7 +63,9 @@ export default class Review extends Component {
       credentials: 'same-origin'
     })
     .then(res => {
-      console.log(res)
+      if (res.ok) {
+        this.props.loadReviews()
+      }
     })
   }
 

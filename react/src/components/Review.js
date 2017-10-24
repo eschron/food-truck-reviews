@@ -5,7 +5,8 @@ export default class Review extends Component {
     super(props)
     this.state = {
       vote_count: 0,
-      user_id: null
+      user_id: null,
+      user_admin: false
     }
 
     this.vote = this.vote.bind(this)
@@ -71,13 +72,21 @@ export default class Review extends Component {
 
   componentDidMount() {
     this.getVoteCount()
-    let id = document.getElementById('app').dataset.currentUserID
+    let user_attributes = document.getElementById('app')
+    let id = user_attributes.dataset.currentuserid
+    let admin = user_attributes.dataset.admin
+
     this.setState({
-      user_id: id
+      user_id: id,
+      user_admin: admin
     })
   }
 
   render() {
+    const admin_delete_button = (this.user_admin)
+      ? ( <button onClick={this.deleteReview}>Delete</button> ) 
+      : null
+
     return(
       <div>
         <ul>
@@ -92,7 +101,7 @@ export default class Review extends Component {
           </li>
           <li>Rating: {this.props.rating}</li>
           <li>Description: {this.props.description}</li>
-          <button onClick={this.deleteReview}>Delete</button>
+          {admin_delete_button}
         </ul>
       </div>
     )

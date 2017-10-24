@@ -8,7 +8,7 @@ RSpec.describe "Admin updates truck" do
 
     @south_station = Location.create!(body: "South Station")
     @north_station = Location.create!(body: "North Station")
-    @my_truck = Truck.create!(name: "Old Name", description: "Old description", email: "old@email.com", location: @south_station)
+    @my_truck = FactoryGirl.create(:truck, location: @south_station)
   end
 
   scenario "Admin visits truck edit page" do
@@ -19,9 +19,8 @@ RSpec.describe "Admin updates truck" do
     click_on "Edit Truck"
 
     expect(page).to have_content("Update #{@my_truck.name}")
-    expect(find_field('Name').value).to eq("Old Name")
-    expect(find_field('Description').value).to eq("Old description")
-    expect(find_field('Email').value).to eq("old@email.com")
+    expect(find_field('Name').value).to eq("Yummy Food")
+    expect(find_field('Description').value).to eq("The yummiest food")
     expect(find_field('location').value).to eq(@south_station.id.to_s)
   end
 
@@ -44,7 +43,6 @@ RSpec.describe "Admin updates truck" do
     visit new_truck_path
 
     fill_in 'Description', with: "blabla"
-    fill_in 'Email', with: "test.email@gmail.com"
     select "South Station", from: "location"
     click_on "Submit Food Truck"
 
@@ -55,22 +53,9 @@ RSpec.describe "Admin updates truck" do
     visit new_truck_path
 
     fill_in 'Name', with: "New name"
-    fill_in 'Email', with: "test.email@gmail.com"
     select "South Station", from: "location"
     click_on "Submit Food Truck"
 
     expect(page).to have_content("Description can't be blank")
   end
-
-  scenario "Admin unsuccessfully updates truck without email" do
-    visit new_truck_path
-
-    fill_in 'Description', with: "blabla"
-    fill_in 'Name', with: "New name"
-    select "South Station", from: "location"
-    click_on "Submit Food Truck"
-
-    expect(page).to have_content("Email can't be blank")
-  end
-
 end

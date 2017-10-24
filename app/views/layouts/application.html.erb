@@ -11,7 +11,7 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <%= link_to('Edit Profile', edit_user_registration_path) %>
+      <%= link_to('Profile', user_path(current_user)) %>
       <%= link_to('Search All Trucks', search_path) %>
     <% end %>
     <% if flash %>

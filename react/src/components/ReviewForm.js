@@ -2,8 +2,6 @@ import React from 'react';
 import ReactRadioButtonGroup from 'react-radio-button-group';
 
 const ReviewForm = props => {
-
-
   return (
     <form className="callout" onSubmit={props.handleSubmit}>
       <label>

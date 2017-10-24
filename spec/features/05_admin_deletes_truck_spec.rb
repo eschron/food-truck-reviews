@@ -7,7 +7,7 @@ RSpec.describe "Admin deletes truck" do
     login_as(@user, :scope => :user)
 
     @south_station = Location.create!(body: "South Station")
-    @my_truck = Truck.create!(name: "Old Name", description: "Old description", email: "old@email.com", location: @south_station)
+    @my_truck = FactoryGirl.create(:truck, location: @south_station)
   end
 
   scenario "Admin deletes truck" do

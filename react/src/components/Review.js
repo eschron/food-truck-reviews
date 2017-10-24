@@ -73,8 +73,8 @@ export default class Review extends Component {
   componentDidMount() {
     this.getVoteCount()
     let user_attributes = document.getElementById('app')
-    let id = user_attributes.dataset.currentuserid
-    let admin = user_attributes.dataset.admin
+    let id = (user_attributes !== null) ? user_attributes.dataset.currentuserid : null
+    let admin = (user_attributes !== null) ? user_attributes.dataset.admin : null
 
     this.setState({
       user_id: id,
@@ -84,7 +84,7 @@ export default class Review extends Component {
 
   render() {
     const admin_delete_button = (this.user_admin)
-      ? ( <button onClick={this.deleteReview}>Delete</button> ) 
+      ? ( <button onClick={this.deleteReview}>Delete</button> )
       : null
 
     return(

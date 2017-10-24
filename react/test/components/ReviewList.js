@@ -13,7 +13,7 @@ describe('ReviewList', () => {
 
   beforeEach(() => {
     jasmineEnzyme();
-    wrapper = mount(<ReviewList reviews={reviews}/>);
+    wrapper = mount(<ReviewList id="app" reviews={reviews}/>);
   });
 
   it('should render a heading', () => {

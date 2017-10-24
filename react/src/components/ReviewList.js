@@ -7,6 +7,7 @@ const ReviewList = props => {
       <ReviewContainer
         currentUserID = {props.currentUserID}
         userID = {review.user_id}
+        loadReviews={props.loadReviews}
         key={review.id}
         id={review.id}
         rating={review.rating}

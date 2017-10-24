@@ -1,6 +1,6 @@
 <h1>Food Trucks</h1>
 
-<%= form_for(@user, as: :user, url: session_path(@user)) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>

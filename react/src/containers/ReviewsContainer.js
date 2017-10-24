@@ -116,6 +116,7 @@ class ReviewsContainer extends Component {
           currentUserID = {this.state.currentUserID}
           reviews = {this.state.allReviews}
           editReview = {this.state.editReview}
+          loadReviews={this.getReviews}
         />
       </div>
     )

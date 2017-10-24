@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 feature 'User updates account info' do
-  scenario 'user changes their email and password' do
+  scenario 'user changes their email, password, first name, and last name' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
 
     visit "/"
+    click_on "Profile"
     click_on "Edit Profile"
 
+    fill_in "First name", with: "Marky"
+    fill_in "Last name", with: "Mark"
     fill_in "Password", with: "newpassword"
     fill_in "Password confirmation", with: "newpassword"
     fill_in "Current password", with: user.password
@@ -24,6 +27,7 @@ feature 'User updates account info' do
     login_as(user, :scope => :user)
 
     visit "/"
+    click_on "Profile"
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"
@@ -40,6 +44,7 @@ feature 'User updates account info' do
     login_as(user, :scope => :user)
 
     visit "/"
+    click_on "Profile"
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"

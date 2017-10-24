@@ -5,6 +5,7 @@ describe('ReviewList', () => {
   let wrapper;
   let reviews = [
     {
+      id: 0,
       rating: 5,
       description: 'the description'
     }
@@ -12,7 +13,7 @@ describe('ReviewList', () => {
 
   beforeEach(() => {
     jasmineEnzyme();
-    wrapper = mount(<ReviewList reviews={reviews}/>);
+    wrapper = mount(<ReviewList id="app" reviews={reviews}/>);
   });
 
   it('should render a heading', () => {

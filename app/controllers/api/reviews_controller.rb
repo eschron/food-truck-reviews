@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy]
 
   def create
     @review = Review.new(
@@ -19,6 +19,21 @@ class Api::ReviewsController < ApplicationController
   def index
     @truck = Truck.find(params[:truck_id])
     render_reviews(@truck)
+  end
+
+  def show
+    render json: { review: Review.find(params[:id])}
+  end
+
+  def destroy
+    if current_user.admin == true
+      review = Review.find(params[:id])
+      truck = review.truck
+      Review.delete(review)
+      render_reviews(truck)
+    else
+      redirect_to review.truck
+    end
   end
 
   private

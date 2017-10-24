@@ -89,7 +89,9 @@ class ReviewsContainer extends Component {
           <h1 className="text-center"></h1>
           {formDiv}
         </div>
-        <ReviewList reviews = {this.state.allReviews} />
+        <ReviewList 
+          reviews={this.state.allReviews}
+          loadReviews={this.getReviews} />
       </div>
     )
   }

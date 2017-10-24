@@ -27,7 +27,8 @@ describe('ReviewsContainer', () => {
   it('should render a Reviews component with props', () => {
     expect(wrapper.find(ReviewList)).toBePresent();
     expect(wrapper.find(ReviewList).props()).toEqual({
-      reviews: wrapper.state().allReviews
+      reviews: wrapper.state().allReviews,
+      loadReviews: jasmine.any(Function)
     })
   })
 

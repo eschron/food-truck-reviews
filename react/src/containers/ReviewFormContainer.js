@@ -10,9 +10,11 @@ class ReviewFormContainer extends Component {
       description: ''
     }
     this.handleClearForm = this.handleClearForm.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNew = this.handleNew.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClearForm() {
@@ -23,7 +25,7 @@ class ReviewFormContainer extends Component {
     })
   }
 
-  handleSubmit(event){
+  handleNew(event){
     event.preventDefault();
     if (this.state.rating === null) {
       this.setState({ratingErrors: 'Please select a rating.'})
@@ -31,11 +33,29 @@ class ReviewFormContainer extends Component {
     else {
       let formPayload = {
         rating: parseInt(this.state.rating, 10),
-        description: this.state.description
+        description: this.state.description,
       }
-      this.props.handleNewReview(formPayload)
+      this.props.handleReviewRequest(formPayload, 'POST')
       this.handleClearForm()
     }
+  }
+
+  handleUpdate(event) {
+    event.preventDefault();
+    let formPayload = {
+      rating: parseInt(this.state.rating, 10),
+      description: this.state.description,
+      reviewId: this.props.reviewId
+    }
+    this.props.handleReviewRequest(formPayload, 'PATCH')
+  }
+
+  handleDelete(event) {
+    event.preventDefault();
+    let formPayload = {
+      reviewId: this.props.reviewId
+    }
+    this.props.handleReviewRequest(formPayload, 'DELETE')
   }
 
   handleRatingChange(value){
@@ -46,21 +66,36 @@ class ReviewFormContainer extends Component {
     this.setState({description: event.target.value})
   }
 
+  componentDidMount() {
+    if (this.props.rating) {
+      this.setState({rating: this.props.rating})
+    }
+
+    if (this.props.description) {
+      this.setState({description: this.props.description})
+    }
+  }
+
   render() {
     let errorDiv;
     if (this.state.ratingErrors !== '') {
       errorDiv = <p>{this.state.ratingErrors}</p>
     }
+
     return (
       <div>
         {errorDiv}
         <ReviewForm
           handleClearForm = {this.handleClearForm}
-          handleSubmit = {this.handleSubmit}
+          handleUpdate = {this.handleUpdate}
+          handleNew = {this.handleNew}
+          handleDelete = {this.handleDelete}
           handleRatingChange = {this.handleRatingChange}
+          handleCancel = {this.handleCancel}
           rating = {this.state.rating}
           description = {this.state.description}
           handleDescriptionChange = {this.handleDescriptionChange}
+          newOrUpdate = {this.props.newOrUpdate}
         />
       </div>
     )

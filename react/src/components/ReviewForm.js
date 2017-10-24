@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactRadioButtonGroup from 'react-radio-button-group';
 
 const ReviewForm = props => {
 
+  let handleSubmit, deleteButton, cancelButton;
+
+  if (props.newOrUpdate == "new") {
+    handleSubmit = props.handleNew
+    cancelButton = <input
+      onClick = {props.handleCancel}
+      className="button"
+      type="submit"
+      value="Cancel"
+    />
+
+  } else if (props.newOrUpdate == "update") {
+    handleSubmit = props.handleUpdate
+    deleteButton = <input
+      onClick = {props.handleDelete}
+      className="button"
+      type="submit"
+      value="Delete"
+    />
+  }
 
   return (
-    <form className="callout" onSubmit={props.handleSubmit}>
+    <form className="callout" onSubmit={handleSubmit}>
       <label>
         Rating
         <ReactRadioButtonGroup
@@ -28,7 +48,9 @@ const ReviewForm = props => {
       </label>
 
       <div className="button-group">
-        <input className="button" type="submit" value="Submit" />
+        <input className="button" type="submit" value="Submit"/>
+        {deleteButton}
+        {cancelButton}
       </div>
     </form>
   );

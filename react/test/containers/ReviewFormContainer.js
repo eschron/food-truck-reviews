@@ -28,11 +28,15 @@ describe('ReviewFormContainer', () => {
     expect(wrapper.find(ReviewForm).props()).toEqual({
 
       handleClearForm: jasmine.any(Function),
-      handleSubmit: jasmine.any(Function),
+      handleUpdate: jasmine.any(Function),
+      handleNew: jasmine.any(Function),
+      handleDelete: jasmine.any(Function),
       handleRatingChange: jasmine.any(Function),
+      handleCancel: wrapper.props().handleCancel,
       rating: wrapper.state().rating,
       description: wrapper.state().description,
-      handleDescriptionChange: jasmine.any(Function)
+      handleDescriptionChange: jasmine.any(Function),
+      newOrUpdate: wrapper.props().newOrUpdate
     });
   });
 

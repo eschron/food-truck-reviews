@@ -18,8 +18,9 @@ class ReviewsContainer extends Component {
   }
 
   getReviews() {
-    let id = document.getElementById('app').dataset.currentuserid;
-    id = parseInt(id, 10)
+    let id = (document.getElementById('app'))
+      ? parseInt((document.getElementById('app').dataset.currentuserid), 10)
+      : null
 
     fetch(`/api/trucks/${this.props.params.id}/reviews.json`)
     .then(response => {
@@ -65,24 +66,24 @@ class ReviewsContainer extends Component {
       body: JSON.stringify(newReview),
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(response => {
-        if (response.ok) {
-          return response;
-        } else {
-          let errorMessage = `${response.status} (${response.statusText})`,
-              error = new Error(errorMessage);
-          throw(error);
-        }
-      })
-      .then(response => response.json())
-      .then(body => {
-        this.setState({
-          allReviews: body.reviews,
-          addReview: false,
-          editReview: false
-        });
-      })
-      .catch(error => console.error(`Error in fetch: ${error.message}`));
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        allReviews: body.reviews,
+        addReview: false,
+        editReview: false
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
   handleAddReviewClick() {

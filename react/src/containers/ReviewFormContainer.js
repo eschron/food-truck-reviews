@@ -91,7 +91,7 @@ class ReviewFormContainer extends Component {
           handleNew = {this.handleNew}
           handleDelete = {this.handleDelete}
           handleRatingChange = {this.handleRatingChange}
-          handleCancel = {this.handleCancel}
+          handleCancel = {this.props.handleCancel}
           rating = {this.state.rating}
           description = {this.state.description}
           handleDescriptionChange = {this.handleDescriptionChange}

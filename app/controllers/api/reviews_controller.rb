@@ -10,18 +10,19 @@ class Api::ReviewsController < ApplicationController
     )
     if @review.save
       ReviewMailer.new_review(@review).deliver_now
-      render_reviews
+      render_reviews(@review.truck)
     else
       render json: { error: review.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
   def index
-    render_reviews
+    @truck = Truck.find(params[:truck_id])
+    render_reviews(@truck)
   end
 
   private
-  def render_reviews
-    render json: { reviews: Review.all.order(created_at: :desc) }
+  def render_reviews(truck)
+    render json: { reviews: truck.reviews.order(created_at: :desc) }
   end
 end

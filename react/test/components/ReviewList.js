@@ -5,6 +5,7 @@ describe('ReviewList', () => {
   let wrapper;
   let reviews = [
     {
+      id: 0,
       rating: 5,
       description: 'the description'
     }

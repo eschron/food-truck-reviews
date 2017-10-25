@@ -15,6 +15,11 @@ RSpec.describe User, type: :user do
     it "has an avatar uploader" do
       expect(user.avatar).to be_a(AvatarUploader)
     end
+
+    it "should not be an admin or truck owner" do
+      expect(user.admin).to eq(false)
+      expect(user.truck_owner).to eq(false)
+    end
   end
 
   context "when user information is missing" do
@@ -72,4 +77,5 @@ RSpec.describe User, type: :user do
       expect(User.all.length).to eq(0)
     end
   end
+
 end

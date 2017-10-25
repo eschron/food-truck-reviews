@@ -7,3 +7,8 @@
   font-size: 16pt;
   margin-left: 10px;
 }
+
+.profile-image {
+  width: 100px;
+  height: auto;
+}

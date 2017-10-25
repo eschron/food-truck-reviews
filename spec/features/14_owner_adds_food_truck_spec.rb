@@ -1,26 +1,14 @@
 require 'rails_helper'
-
-RSpec.describe "Admin adds new truck" do
+RSpec.describe "Owner adds food truck" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @user.admin = true
-    login_as(@user, :scope => :user)
+    user = FactoryGirl.create(:user, truck_owner: true)
+    login_as(user, :scope => :user)
     Location.create!(body: "South Station")
   end
 
-  scenario "Admin visits new truck page" do
+  scenario "User sees list of all trucks" do
     visit trucks_path
-
-    expect(page).to have_content('Add Food Truck')
-
     click_on "Add Food Truck"
-    expect(page).to have_content("Name")
-    expect(page).to have_content("Description")
-    expect(page).to have_content("Location")
-  end
-
-  scenario "Admin adds new truck" do
-    visit new_truck_path
 
     fill_in 'Name', with: "Foo"
     fill_in 'Description', with: "blabla"
@@ -32,7 +20,7 @@ RSpec.describe "Admin adds new truck" do
     expect(page).to have_content("blabla")
   end
 
-  scenario "Admin unsuccessfully add new truck without name" do
+  scenario "Truck owner unsuccessfully add new truck without name" do
     visit new_truck_path
 
     fill_in 'Description', with: "blabla"
@@ -42,7 +30,7 @@ RSpec.describe "Admin adds new truck" do
     expect(page).to have_content("Name can't be blank")
   end
 
-  scenario "Admin unsuccessfully add new truck without description" do
+  scenario "Truck owner unsuccessfully add new truck without description" do
     visit new_truck_path
 
     fill_in 'Name', with: "New name"

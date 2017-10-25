@@ -20,7 +20,7 @@
   </div>
 
   <div>
-    <%=f.label :location %>
+    <%=f.label :location_id, value: "Location" %>
     <%= f.collection_select(:location_id, Location.all, :id, :body) %>
   </div>
 

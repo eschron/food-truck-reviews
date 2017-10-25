@@ -46,9 +46,9 @@ class TrucksController < ApplicationController
 
     if !(@truck.user == current_user || current_user.admin?)
       flash[:notice] = "You are not authorized to update this truck's info."
+      redirect_to truck_path(@truck)
     end
 
-    redirect_to truck_path(@truck)
   end
 
   def update
@@ -62,7 +62,7 @@ class TrucksController < ApplicationController
         flash[:notice] = "Truck updated successfully"
         redirect_to truck_path(@truck)
       else
-        render :new
+        render :edit
       end
 
     else

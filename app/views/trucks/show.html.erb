@@ -6,8 +6,8 @@
 <div
   id='app'
   data-currentuserid='<%= current_user.id %>'
-  data-currentuseradmin='<%= current_user.admin %>'></div>
+  data-currentuseradmin='<%= current_user.admin %>'</div>
 
-<% if current_user.admin %>
+<% if current_user.admin || @truck.user == current_user %>
   <%= link_to "Edit Truck", edit_truck_path(@truck) %>
 <% end %>

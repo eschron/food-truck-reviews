@@ -17,14 +17,22 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    review = Review.update(params[:id], review_params)
+    review = Review.find(params[:id])
+    if review.user == current_user
+      review.update(review_params)
+    end
     render_reviews(review.truck)
   end
 
   def destroy
-    truck = Truck.find(params[:truck_id])
-    Review.destroy(params[:id])
-    render_reviews(truck)
+    review = Review.find(params[:id])
+    truck = review.truck
+    if review.user == current_user || current_user.admin?
+      Review.destroy(review.id)
+      render_reviews(truck)
+    else
+      redirect_to review.truck
+    end
   end
 
   def index
@@ -34,17 +42,6 @@ class Api::ReviewsController < ApplicationController
 
   def show
     render json: { review: Review.find(params[:id])}
-  end
-
-  def destroy
-    if current_user.admin == true
-      review = Review.find(params[:id])
-      truck = review.truck
-      Review.delete(review)
-      render_reviews(truck)
-    else
-      redirect_to review.truck
-    end
   end
 
   private

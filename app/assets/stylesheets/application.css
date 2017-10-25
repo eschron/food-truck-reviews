@@ -13,3 +13,80 @@
  *= require_tree .
  *= require_self
  */
+
+header ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     background-color: #333;
+ }
+
+ header li {
+     float: left;
+ }
+
+ header li a {
+     display: block;
+     color: #fffcf9;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+ }
+
+ /* Change the link color to #111 (black) on hover */
+ header li a:hover {
+     background-color: #111;
+ }
+
+.searchform  {
+  font-size: 150%;
+  height: 40%;
+  width: 100%;
+  background-image: url('search_trucks.jpg');
+  background-size: cover;
+  display: inline-flex;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.searchoverlay {
+  background: rgba(10, 10, 10, 0.7);
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.searchform p,h1{
+  color: #fffcf9;
+}
+
+body {
+  margin: 0;
+}
+
+body p {
+  margin: 0;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  position: absolute
+}
+
+.all_trucks {
+  height: 60%;
+  width: 100%;
+  background-color: #fffcf9;
+  padding: 10px;
+}
+
+.truck {
+  background-color: #fcf0e3;
+  width: 70%;
+  position: relative;
+  margin: 0 auto 10px;
+  padding: 10px;
+}

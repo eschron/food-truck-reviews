@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>FoodTruckReviews</title>
     <%= csrf_meta_tags %>
 
@@ -8,12 +9,17 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
+  <header>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to('Profile', user_path(current_user)) %></li>
+        <li><%= link_to('Search All Trucks', search_path) %></li>
+      <% end %>
+    </ul>
+  </header>
+
   <body>
-    <% if user_signed_in? %>
-      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-      <%= link_to('Profile', user_path(current_user)) %>
-      <%= link_to('Search All Trucks', search_path) %>
-    <% end %>
     <% if flash %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

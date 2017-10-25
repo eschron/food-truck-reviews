@@ -1,13 +1,38 @@
-<div class="name">
-  <%= "#{@user.first_name} #{@user.last_name}" %>
-</div>
+<div class="profile-left-gutter"></div>
 
-<div class="edit">
-  <%= link_to('Edit Profile', edit_user_registration_path) %>
-</div>
+<div class="profile">
+  <div class="profile-details">
+    <div class="picture">
+      <%= image_tag(@user.avatar, :alt => "Profile Image", :class => "profile-image")%>
+    </div>
 
-<div class="email">
-  <%= @user.email %>
-</div>
+    <div class="name">
+      <%= "#{@user.first_name} #{@user.last_name}" %>
+    </div>
 
-<%= image_tag(@user.avatar, :alt => "Profile Image", :class => "profile-image")%>
+    <div class="edit">
+      <%= link_to('Edit Profile', edit_user_registration_path) %>
+    </div>
+
+    <div class="email">
+      <%= @user.email %>
+    </div>
+
+    <div class="number-reviews">
+      <% num_of_reviews = @user.reviews.length %>
+      <% if num_of_reviews > 1%>
+        <%= num_of_reviews %>
+      <% elsif num_of_reviews == 1%>
+        1 review
+      <% else %>
+        No Reviews
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-reviews">
+    <div class="review"></div>
+    <div class="review"></div>
+    <div class="review"></div>
+  </div>
+</div>

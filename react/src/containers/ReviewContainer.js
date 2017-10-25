@@ -140,7 +140,7 @@ export default class ReviewContainer extends Component {
         </ul>
     }
     return(
-      <div>
+      <div className="review-container">
         {reviewDiv}
         {buttonDiv}
       </div>

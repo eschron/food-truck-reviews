@@ -13,7 +13,7 @@ const ReviewForm = props => {
 
   return (
     <form className="callout" onSubmit={handleSubmit}>
-      <label>
+      <label className="rating-order">
         Rating
         <ReactRadioButtonGroup
           options={['1', '2', '3', '4', '5']}
@@ -25,8 +25,10 @@ const ReviewForm = props => {
         />
       </label>
 
-      <label>Description
+      <label className="description">
+        <div className="label">Description</div>
         <textarea
+          className="textarea"
           name='description'
           type='text'
           value={props.description}

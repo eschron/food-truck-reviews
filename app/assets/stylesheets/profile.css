@@ -1,14 +1,69 @@
-.name {
-  font-size: 30pt;
-  margin-left: 10px;
+.profile-left-gutter {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: calc((100% - 1000px) / 2);
+}
+.profile {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 200px;
+  max-width: 1000px;
 }
 
-.email {
-  font-size: 16pt;
+
+.profile-details {
+  position: reative;
+  float: left;
+  width: 250px;
+  background: white;
+  /*color: var(--accent-color);*/
+}
+.profile-details > .name {
+  font-size: 20pt;
   margin-left: 10px;
 }
-
-.profile-image {
-  width: 100px;
+.profile-details > .email {
+  font-size: 14pt;
+  margin-left: 10px;
+}
+.profile-details .picture {
+  width: 100%;
   height: auto;
+}
+
+.profile-details .edit {
+  margin-left: 10px;
+}
+
+.profile-details > .picture > .profile-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.profile-details > .number-reviews {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+.user-reviews {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 250px);
+  /*max-width: 600px;*/
+}
+
+.review {
+  position: relative;
+  float: left;
+  margin: 20px 10px;
+  height: 100px;
+  width: calc(100% - 20px);
+  background: yellow;
 }

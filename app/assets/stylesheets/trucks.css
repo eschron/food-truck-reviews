@@ -1,1 +1,138 @@
+.truck-left-gutter {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: calc((100% - 1000px) / 2);
+}
+.truck {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 200px;
+  max-width: 1000px;
+}
 
+
+.truck-details {
+  position: reative;
+  float: left;
+  width: 250px;
+  background: white;
+  /*color: var(--accent-color);*/
+}
+.truck-details > .name {
+  font-size: 20pt;
+  margin-left: 10px;
+}
+
+
+.truck-details .edit {
+  margin-left: 10px;
+}
+
+.truck-details .location {
+  margin-left: 10px;
+}
+
+.truck-details .categories {
+  margin-top: 10px;
+  margin-left: 10px;
+  postion: relative;
+  float: left;
+  width: 100%;
+}
+.truck-details .categories > .category {
+  position: relative;
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  background: var(--main-color);
+  box-shadow: 0 0 4px rgba(0,0,0,.1);
+  border-radius: 4px;
+}
+
+.truck-details > .number-reviews {
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: 14pt;
+}
+
+.truck-details > .description {
+  font-size: 20pt;
+  margin-left: 10px;
+}
+
+
+
+
+
+.truck-reviews {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 250px);
+}
+
+.truck-reviews > .add-a-review-container {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.truck-reviews > .add-a-review-container > .add-a-review {
+  position: relative;
+  float: left;
+  background: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 14pt;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+
+.truck-reviews > .add-a-review-container > .add-a-review:focus {
+  outline: none;
+}
+
+.truck-reviews > .review-form {
+  position: relative;
+  float: left;
+  background: white;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.review-form .rating-order {
+  position: relative;
+  float: left;
+  width: 50px;
+}
+
+.review-form .description {
+  position: relative;
+  float: left;
+  width: calc(100% - 60px);
+}
+
+.description > .label {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.description > .textarea {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.review-container {
+  position: relative;
+  float: left;
+  margin: 20px 10px;
+  /*height: 100px;*/
+  width: calc(100% - 20px);
+  background: yellow;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewList from '../../src/components/ReviewList';
+import ReviewContainer from '../../src/containers/ReviewContainer';
 
 describe('ReviewList', () => {
   let wrapper;
@@ -21,6 +22,6 @@ describe('ReviewList', () => {
   });
 
   it('should render the reviews', () => {
-    expect(wrapper.find('ul').length).toEqual(1);
+    expect(wrapper.find(ReviewContainer).length).toEqual(1);
   });
 })

@@ -1,13 +1,13 @@
 import React from 'react';
-import Review from '../../src/components/Review';
+import ReviewContainer from '../../src/containers/ReviewContainer';
 
-describe('Review', () => {
+describe('ReviewContainer', () => {
   let wrapper;
 
   beforeEach(() => {
     jasmineEnzyme();
     wrapper = mount(
-      <Review
+      <ReviewContainer
         id={1}
         rating={5}
         description="the description"

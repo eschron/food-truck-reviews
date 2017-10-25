@@ -24,9 +24,9 @@ RSpec.describe "User visits trucks search page" do
     login_as(@user, :scope => :user)
   end
 
-  scenario "User accesses truck search page from home page" do
+  scenario "User accesses truck search page from any page" do
     visit "/"
-    click_on "Search All Trucks"
+    click_on "Search Trucks"
 
     expect(page).to have_content('Search Trucks')
   end

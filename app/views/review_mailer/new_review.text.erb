@@ -1,9 +1,14 @@
 Hello <%= @review.truck.user.first_name %>,
 
-<%= "#{@review.user.first_name} #{@review.user.last_name}" %> has added a
-review for your food truck, <%= @review.truck.name %>!
-Check out what they had to say.
+<%= "#{@review.user.first_name} #{@review.user.last_name}" %> has added a review for your food truck, <%= @review.truck.name %>!
+Here's what they had to say:
 
-Happy eating!
+Rating: <%= @review.rating %>
+<% if @review.description %>
+<br/>
+Description: <%= @review.description %>
+<% end %>
 
-The Food Truck Review Crew
+Happy eating,
+
+The YummyBear Team

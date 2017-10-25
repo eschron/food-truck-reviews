@@ -34,7 +34,7 @@ RSpec.describe "Admin visits users index page" do
 
     visit users_path
 
-    click_on 'delete'
+    click_on 'Delete'
 
     expect(User.all.length).to eq(1)
   end

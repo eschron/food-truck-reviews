@@ -11,7 +11,7 @@ describe('ReviewsContainer', () => {
 
   beforeEach(() => {
     jasmineEnzyme();
-    spyOn(ReviewsContainer.prototype, 'handleClick').and.callThrough();
+    spyOn(ReviewsContainer.prototype, 'handleAddReviewClick').and.callThrough();
     let params = {id: 434324}
     wrapper = mount(<ReviewsContainer params={ params } />);
   });
@@ -19,15 +19,19 @@ describe('ReviewsContainer', () => {
   it('should have the specified initial state', () => {
     expect(wrapper.state()).toEqual({
       allReviews: [],
-      review: {},
-      addReview: false
+      addReview: false,
+      editReview: false,
+      currentUserID: null
     });
   });
 
-  it('should render a Reviews component with props', () => {
+  it('should render a ReviewList component with props', () => {
     expect(wrapper.find(ReviewList)).toBePresent();
     expect(wrapper.find(ReviewList).props()).toEqual({
+      handleReviewRequest: jasmine.any(Function),
+      currentUserID: wrapper.state().currentUserID,
       reviews: wrapper.state().allReviews,
+      editReview: wrapper.state().editReview,
       loadReviews: jasmine.any(Function)
     })
   })

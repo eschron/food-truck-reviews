@@ -1,5 +1,8 @@
 <%= link_to('Edit Profile', edit_user_registration_path) %>
 
 <h1>My Profile</h1>
+
+<%= image_tag(@user.avatar, :alt => "Profile Image", :class => "profile-image")%>
+
 <p>Name: <%= "#{@user.first_name} #{@user.last_name}" %>
 <p>Email: <%= @user.email %></p>

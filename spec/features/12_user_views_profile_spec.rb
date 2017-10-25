@@ -8,6 +8,8 @@ RSpec.describe "User visits profile page" do
     visit "/"
     click_on "Profile"
 
+    expect(page).to have_css("img[src='#{user.avatar}']")
+    expect(page).to have_css("img[alt='Profile Image']")        
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
     expect(page).to have_content(user.email)

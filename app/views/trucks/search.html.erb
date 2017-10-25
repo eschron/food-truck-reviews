@@ -1,32 +1,50 @@
-<div class="content">
-  <div class="searchform">
-    <div class="searchoverlay">
-      <h1>Search Trucks</h1>
-      <%= form_tag(search_path, :method => "get") do %>
-        <p>
-          <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
-          <%= select_tag "location_id", options_from_collection_for_select(Location.all, "id", "body"), :include_blank => "Select Location", :class => "select_style"%>
-          <% @categories.each do |category| %>
-            <label>
-              <%= radio_button_tag("category", category.cuisine) %>
-              <%=category.cuisine %>
-            </label>
-          <% end %>
-          <%= submit_tag "Search", :name => nil %>
-        </p>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="all_trucks">
-    <% if @trucks.length > 0 %>
-      <% @trucks.each do |truck| %>
-        <div class="truck">
-          <p><%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></p>
-        </div>
-      <% end %>
-    <% else %>
-      <p>No trucks match this search.</p>
+<div class="search-form">
+  <div class="overlay">
+    <h1>Search Trucks</h1>
+    <%= form_tag(search_path, :method => "get") do %>
+      <p>
+        <%= text_field_tag :search, params[:search], placeholder: 'Enter search term...' %>
+        <%= select_tag "location_id", options_from_collection_for_select(Location.all, "id", "body"), :include_blank => "Select Location", :class => "select_style"%>
+        <% @categories.each do |category| %>
+          <label>
+            <%= radio_button_tag("category", category.cuisine) %>
+            <%=category.cuisine %>
+          </label>
+        <% end %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
     <% end %>
   </div>
+</div>
+
+<div class="results">
+  <% if @trucks.length > 0 %>
+    <% @trucks.each do |truck| %>
+      <div class="truck-container">
+        <div class="truck">
+          <div class="name">
+            <%= link_to truck.name, truck_path(truck)%>
+          </div>
+          <div class="location">
+            <%= truck.location.body %>
+          </div>
+          <div class="description">
+            <%= truck.description %>
+          </div>
+
+
+          <div class="rating">
+            <% avg_rating = truck.reviews.average(:rating).to_f.round(1) %>
+            <% if truck.reviews.length > 0 %>
+              <%= avg_rating %>
+            <% else %>
+              Be the first to review!
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No trucks match this search.</p>
+  <% end %>
 </div>

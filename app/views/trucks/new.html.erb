@@ -20,13 +20,8 @@
   </div>
 
   <div>
-    <% locations = Location.all %>
-    <%= f.label :location %>
-    <select name="location">
-      <% locations.each do |l| %>
-        <option value="<%= l.id  %>"> <%= l.body %></option>
-      <% end %>
-    </select>
+    <%=f.label :location_id, value: "Location" %>
+    <%= f.collection_select(:location_id, Location.all, :id, :body) %>
   </div>
 
   <%= f.submit "Submit Food Truck" %>

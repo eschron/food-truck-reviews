@@ -11,25 +11,6 @@ const ReviewForm = props => {
     value={(props.newOrUpdate === 'new') ? "Cancel" : "Delete"}
     />
 
-  // if (props.newOrUpdate == "new") {
-  //   handleSubmit = props.handleNew
-  //   cancelButton = <input
-  //     onClick = {props.handleCancel}
-  //     className="button"
-  //     type="submit"
-  //     value="Cancel"
-  //   />
-  //
-  // } else if (props.newOrUpdate == "update") {
-  //   handleSubmit = props.handleUpdate
-  //   deleteButton = <input
-  //     onClick = {props.handleDelete}
-  //     className="button"
-  //     type="submit"
-  //     value="Delete"
-  //   />
-  // }
-
   return (
     <form className="callout" onSubmit={handleSubmit}>
       <label>

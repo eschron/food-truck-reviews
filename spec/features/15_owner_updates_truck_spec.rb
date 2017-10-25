@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe "Admin updates truck" do
+RSpec.describe "Owner updates truck" do
   before(:each) do
-    @user = FactoryGirl.create(:user)
-    @user.admin = true
-    login_as(@user, :scope => :user)
+    user = FactoryGirl.create(:user, truck_owner: true)
+    login_as(user, :scope => :user)
 
     @south_station = Location.create!(body: "South Station")
     @north_station = Location.create!(body: "North Station")
-    @my_truck = FactoryGirl.create(:truck, location: @south_station)
+    @my_truck = FactoryGirl.create(:truck, location: @south_station, user: user)
   end
 
-  scenario "Admin visits truck edit page" do
+  scenario "Owner visits truck edit page" do
     visit truck_path(@my_truck)
 
     expect(page).to have_content("Edit Truck")
@@ -24,7 +23,7 @@ RSpec.describe "Admin updates truck" do
     expect(find_field('location').value).to eq(@south_station.id.to_s)
   end
 
-  scenario "Admin updates truck" do
+  scenario "Owner updates truck" do
     visit edit_truck_path(@my_truck)
 
     fill_in 'Name', with: "New Name"
@@ -39,7 +38,7 @@ RSpec.describe "Admin updates truck" do
     expect(page).to have_content("North Station")
   end
 
-  scenario "Admin unsuccessfully updates truck without name" do
+  scenario "Owner unsuccessfully updates truck without name" do
     visit edit_truck_path(@my_truck)
 
     fill_in 'Name', with: ""
@@ -50,7 +49,7 @@ RSpec.describe "Admin updates truck" do
     expect(page).to have_content("Name can't be blank")
   end
 
-  scenario "Admin unsuccessfully updates truck without description" do
+  scenario "Owner unsuccessfully updates truck without description" do
     visit edit_truck_path(@my_truck)
 
     fill_in 'Name', with: "New name"

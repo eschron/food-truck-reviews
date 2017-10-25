@@ -6,3 +6,12 @@
 
 <p>Name: <%= "#{@user.first_name} #{@user.last_name}" %>
 <p>Email: <%= @user.email %></p>
+
+<% if @user.truck_owner? %>
+  <h4>My Trucks</h4>
+    <ul>
+      <% @user.trucks.each do |truck| %>
+        <li><%= link_to truck.name, truck_path(truck) %></li>
+      <% end %>
+    </ul>
+<% end %>

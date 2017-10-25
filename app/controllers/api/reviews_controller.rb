@@ -51,4 +51,8 @@ class Api::ReviewsController < ApplicationController
   def render_reviews(truck)
     render json: { reviews: truck.reviews.order(created_at: :desc) }
   end
+
+  def review_params()
+   params.require(:review).permit(:truck_id, :rating, :description)
+ end
 end

@@ -2,27 +2,33 @@ import React, { Component } from 'react';
 import ReactRadioButtonGroup from 'react-radio-button-group';
 
 const ReviewForm = props => {
+  let handleSubmit = (props.newOrUpdate === 'new') ? props.handleNew : props.handleUpdate
 
-  let handleSubmit, deleteButton, cancelButton;
-
-  if (props.newOrUpdate == "new") {
-    handleSubmit = props.handleNew
-    cancelButton = <input
-      onClick = {props.handleCancel}
-      className="button"
-      type="submit"
-      value="Cancel"
+  const button = <input
+    onClick={(props.newOrUpdate === 'new') ? props.handleCancel : props.handleDelete}
+    className="button"
+    type="submit"
+    value={(props.newOrUpdate === 'new') ? "Cancel" : "Delete"}
     />
 
-  } else if (props.newOrUpdate == "update") {
-    handleSubmit = props.handleUpdate
-    deleteButton = <input
-      onClick = {props.handleDelete}
-      className="button"
-      type="submit"
-      value="Delete"
-    />
-  }
+  // if (props.newOrUpdate == "new") {
+  //   handleSubmit = props.handleNew
+  //   cancelButton = <input
+  //     onClick = {props.handleCancel}
+  //     className="button"
+  //     type="submit"
+  //     value="Cancel"
+  //   />
+  //
+  // } else if (props.newOrUpdate == "update") {
+  //   handleSubmit = props.handleUpdate
+  //   deleteButton = <input
+  //     onClick = {props.handleDelete}
+  //     className="button"
+  //     type="submit"
+  //     value="Delete"
+  //   />
+  // }
 
   return (
     <form className="callout" onSubmit={handleSubmit}>
@@ -49,8 +55,7 @@ const ReviewForm = props => {
 
       <div className="button-group">
         <input className="button" type="submit" value="Submit"/>
-        {deleteButton}
-        {cancelButton}
+        {button}
       </div>
     </form>
   );

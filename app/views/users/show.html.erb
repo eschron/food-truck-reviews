@@ -31,11 +31,31 @@
   </div>
 
   <div class="user-reviews">
-    <div class="review"></div>
-    <div class="review"></div>
-    <div class="review"></div>
+    <% @user.reviews.each do |review| %>
+      <div class="review">
+        <div class="review-content">
+          <div class="review-truck-name">
+            <%= review.truck.name %>
+          </div>
+          <div class="review-rating">
+            Rating: <%= review.rating %>
+          </div>
+          <div class="review-description">
+            Description: <%= review.description %>
+          </div>
+        </div>
+        <div class="review-vote-container">
+          <div>
+            Votes: 1
+          </div>
+        </div>
+      </div>
+
+    <% end %>
   </div>
 </div>
+
+
 
 <% if @user.truck_owner? %>
   <h4>My Trucks</h4>

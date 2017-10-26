@@ -19,9 +19,12 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: 0;
-  --main-color: #fcf0e3;
-  --accent-color: rgb(0,100,155);
+  --main-color: #BABEC4;
+  --accent-color: #215CA8;
   background-color: white;
+  --font-color-one: blue;
+  --font-color-two: red;
+  /* --truck-background:  */
 
   --q: 'Questrial', sans-serif;
   --n: 'Nunito Sans', sans-serif;

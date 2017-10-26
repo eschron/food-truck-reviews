@@ -149,29 +149,29 @@ hr {
   width: 95%;
 }
 
-.review-content {
+.truck-reviews .review-content {
   background-color: white;
 }
 
-.review-content > div{
+.truck-reviews .review-content > div{
   position: relative;
   float: left;
 }
 
-.review-rating {
+.truck-reviews .review-rating {
   font-size: 14pt;
   padding: 8px;
 }
 
-.review-button {
+.truck-reviews .review-button {
   background-color: orange;
 }
 
-.review-vote {
+.truck-reviews .review-vote {
   background-color: pink;
 }
 
-.review-vote-count, .up, .down {
+.truck-reviews .review-vote-count, .up, .down {
   position: relative;
   float: left;
   width: 100%;
@@ -180,7 +180,7 @@ hr {
   justify-content: center;
   align-items: center;
 }
-.review-description {
+.truck-reviews .review-description {
   padding: 8px;
 }
 
@@ -194,7 +194,7 @@ hr {
   align-items: flex-start;
 }
 
-.review-body {
+.truck-reviews .review-body {
   width: 65%;
   min-height: 40px;
 }

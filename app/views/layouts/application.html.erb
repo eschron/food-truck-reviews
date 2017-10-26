@@ -21,10 +21,26 @@
   </header>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      <%= link_to 'Home', trucks_path %>
+      <%= link_to 'Profile', user_path(current_user) %>
+      <%= link_to 'Search Trucks', search_path %>
+
+      <% if current_user.admin? %>
+        <%= link_to "All Users", users_path %>
+      <% end %>
+
+      <% if current_user.admin? || current_user.truck_owner? %>
+        <%= link_to "Add Food Truck", new_truck_path %>
+      <% end %>
+    <% end %>
+
     <% if flash %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <% end %>
+    
     <%= yield %>
   </body>
 </html>

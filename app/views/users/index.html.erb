@@ -4,7 +4,7 @@
   <li>
     <%= user.email %>
     <% if user != current_user %>
-      <%= button_to "delete", user, method: :delete %>
+      <%= button_to "Delete", user, method: :delete %>
     <% end %>
   </li>
 <% end %>

@@ -36,3 +36,12 @@
     <div class="review"></div>
   </div>
 </div>
+
+<% if @user.truck_owner? %>
+  <h4>My Trucks</h4>
+    <ul>
+      <% @user.trucks.each do |truck| %>
+        <li><%= link_to truck.name, truck_path(truck) %></li>
+      <% end %>
+    </ul>
+<% end %>

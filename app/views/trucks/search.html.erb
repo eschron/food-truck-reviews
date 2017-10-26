@@ -31,8 +31,6 @@
           <div class="description">
             <%= truck.description %>
           </div>
-
-
           <div class="rating">
             <% avg_rating = truck.reviews.average(:rating).to_f.round(1) %>
             <% if truck.reviews.length > 0 %>
@@ -43,6 +41,7 @@
           </div>
         </div>
       </div>
+
     <% end %>
   <% else %>
     <p>No trucks match this search.</p>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :trucks, only: [:show] do
       resources :reviews, only: [:index]
     end
+
+    resources :users, only: [:show]
   end
 
   get "/search", to: "trucks#search"

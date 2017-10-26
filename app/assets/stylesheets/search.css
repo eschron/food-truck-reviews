@@ -50,7 +50,7 @@
 .results > .truck-container > .truck {
   position: relative;
   float: middle;
-  background-color: #fcf0e3;
+  background-color: var(--main-color);
   width: 40%;
   min-width: 400px;
   max-width: 600px;

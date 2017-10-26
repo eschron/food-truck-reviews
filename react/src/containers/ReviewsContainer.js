@@ -18,8 +18,8 @@ class ReviewsContainer extends Component {
   }
 
   getReviews() {
-    let id = (document.getElementById('app'))
-      ? parseInt((document.getElementById('app').dataset.currentuserid), 10)
+    let id = (document.getElementById('truck-reviews-app'))
+      ? parseInt((document.getElementById('truck-reviews-app').dataset.currentuserid), 10)
       : null
 
     fetch(`/api/trucks/${this.props.params.id}/reviews.json`)

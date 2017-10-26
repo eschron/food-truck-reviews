@@ -10,19 +10,20 @@
   width: 100%;
   height: 200px;
   max-width: 1000px;
+  margin-top: 20px;
 }
 
 
 .truck-details {
   position: reative;
   float: left;
-  width: 250px;
-  background: white;
-  /*color: var(--accent-color);*/
+  width: 240px;
+  margin-right: 10px;
 }
 .truck-details > .name {
   font-size: 20pt;
   margin-left: 10px;
+  color: var(--accent-color);
 }
 
 
@@ -53,15 +54,23 @@
 
 .truck-details > .number-reviews {
   margin-left: 10px;
-  margin-top: 20px;
+  
   font-size: 14pt;
 }
 
 .truck-details > .description {
-  font-size: 20pt;
+  font-size: 15pt;
   margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
 }
 
+.truck-details > .truck-rating {
+  font-size: 14pt;
+  margin-top: 20px;
+  margin-left: 10px;
+}
 
 
 
@@ -132,7 +141,106 @@
   position: relative;
   float: left;
   margin: 20px 10px;
-  /*height: 100px;*/
   width: calc(100% - 20px);
-  background: yellow;
+  background: var(--main-color);
+}
+
+hr {
+  width: 95%;
+}
+
+.review-content {
+  background-color: white;
+}
+
+.review-content > div{
+  position: relative;
+  float: left;
+}
+
+.review-rating {
+  font-size: 14pt;
+  padding: 8px;
+}
+
+.review-button {
+  background-color: orange;
+}
+
+.review-vote {
+  background-color: pink;
+}
+
+.review-vote-count, .up, .down {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.review-description {
+  padding: 8px;
+}
+
+.review-prof-pic {
+  width: 20%;
+  min-height: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.review-body {
+  width: 65%;
+  min-height: 40px;
+}
+
+.edit-review-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.review-votes {
+  width: 15%;
+  min-height: 60px;
+}
+.review-votes div {
+  padding: 4px;
+}
+.review-votes .material-icons {
+  cursor: pointer;
+}
+.review-prof-pic .img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.review-prof-pic img {
+  position: relative;
+  width: 100%;
+  max-width: 75px;
+  height: auto;
+  margin: 10px auto;
+}
+
+.review-prof-pic .user-name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15px;
+  width: 100%;
+  color: var(--accent-color);
+}
+
+.admin-delete {
+  position: absolute;
+  right: 95px;
+  bottom: 10px;
 }

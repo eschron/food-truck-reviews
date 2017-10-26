@@ -10,7 +10,10 @@ export default class ReviewContainer extends Component {
       user_admin: false,
       editReview: this.props.editReview,
       rating: this.props.rating,
-      description: this.props.description
+      description: this.props.description,
+      avatar: null,
+      firstName: "",
+      lastName: ""
     }
 
     this.vote = this.vote.bind(this)
@@ -19,6 +22,7 @@ export default class ReviewContainer extends Component {
     this.getVoteCount = this.getVoteCount.bind(this)
     this.showEditForm = this.showEditForm.bind(this)
     this.deleteReview = this.deleteReview.bind(this)
+    this.getUser= this.getUser.bind(this)
   }
 
   vote(value) {
@@ -62,6 +66,30 @@ export default class ReviewContainer extends Component {
     })
   }
 
+  getUser() {
+    let id = this.props.userID
+
+    fetch(`/api/users/${id}`)
+    .then(response => {
+      if (response.ok) {
+        return response;
+      } else {
+        let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+        throw(error);
+      }
+    })
+    .then(response => response.json())
+    .then(body => {
+      this.setState({
+        avatar: body.user.avatar.url,
+        firstName: body.user.first_name,
+        lastName: body.user.last_name
+      });
+    })
+    .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   showEditForm() {
     this.setState({ editReview: !this.state.editReview })
   }
@@ -85,7 +113,7 @@ export default class ReviewContainer extends Component {
 
   componentDidMount() {
     this.getVoteCount()
-    let user_attributes = document.getElementById('app')
+    let user_attributes = document.getElementById('truck-reviews-app')
     let id = (user_attributes !== null) ? user_attributes.dataset.currentuserid : null
     let admin = (user_attributes !== null) ? user_attributes.dataset.currentuseradmin : null
     admin = admin === 'true'
@@ -93,11 +121,12 @@ export default class ReviewContainer extends Component {
       user_id: id,
       user_admin: admin
     })
+    this.getUser()
   }
 
   render() {
     const admin_delete_button = (this.state.user_admin)
-        ? ( <button onClick={this.deleteReview}>Delete</button> )
+        ? ( <button className="admin-delete" onClick={this.deleteReview}>Delete</button> )
         : null
 
     let buttonDiv;
@@ -108,6 +137,7 @@ export default class ReviewContainer extends Component {
       }
       buttonDiv = <input
         type='button'
+        className="edit-review-button"
         value = {buttonValue}
         onClick = {this.showEditForm}
       />
@@ -124,20 +154,32 @@ export default class ReviewContainer extends Component {
       />
     } else {
       reviewDiv =
-        <ul>
-          <li>
-            Votes: {this.state.vote_count}
-          </li>
-          <li>
-            <button onClick={this.voteUp}>UP</button>
-          </li>
-          <li>
-            <button onClick={this.voteDown}>DOWN</button>
-          </li>
-          <li>Rating: {this.props.rating}</li>
-          <li>Description: {this.props.description}</li>
-          {admin_delete_button}
-        </ul>
+        <div className="review-content">
+          <div className="review-prof-pic">
+            <div className="img-container">
+              <img src={this.state.avatar} alt="Profile Image"/>            
+            </div>
+            <div className="user-name">
+              {`${this.state.firstName} ${this.state.lastName}`}
+            </div>            
+          </div>
+          <div className="review-body">
+            <div className="review-rating">Rating: {this.props.rating}</div>
+            <div className="review-description">Description: {this.props.description}</div>
+          </div>
+          <div className="review-votes">
+            <div className="review-vote-count">
+              Votes: {this.state.vote_count}
+            </div>
+            <div className="up">
+              <i className="material-icons" onClick={this.voteUp}>keyboard_arrow_up</i>
+            </div>
+            <div className="down">
+              <i className="material-icons" onClick={this.voteDown}>keyboard_arrow_down</i>
+            </div>
+          </div>
+            {admin_delete_button}
+        </div>
     }
     return(
       <div className="review-container">

@@ -19,9 +19,9 @@ body, html {
   height: 100vh;
   margin: 0;
   padding: 0;
-  --main-color: #fffcf9;
+  --main-color: #fcf0e3;
   --accent-color: rgb(0,100,155);
-  background-color: var(--main-color);
+  background-color: white;
 
   --q: 'Questrial', sans-serif;
   --n: 'Nunito Sans', sans-serif;

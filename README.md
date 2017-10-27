@@ -8,7 +8,7 @@
 
 This site is a platform for listing and reviewing Boston area food trucks. This repository is a group project created at the coding bootcamp Launch Academy as a way to showcase our skills with a variety of web development technologies.
 
-Check out our site at [yummybear.herokuapp.com]
+Check out our site at yummybear.herokuapp.com
 
 ## Technologies
 
@@ -38,20 +38,20 @@ If you deploy to Heroku and want to include mailer functionality, you will also 
 
 Then run the following in your terminal:
 
-`bundle`
-`rake db:create`
-`rails s`
+`bundle`  
+`rake db:create`  
+`rails s`  
 
 In a separate terminal tab, run:
 
-`npm install`
-`npm start`
+`npm install`  
+`npm start`  
 
 Then navigate to localhost:3000 in your browser.
 
 Finally, to run our test suite, in a separate terminal tab, run:
-`rake` for the Rails models/features test
-`npm test` for our Jasmine/Enzyme React component test.
+`rake` for the Rails models/features test  
+`npm test` for our Jasmine/Enzyme React component test.  
 
 ## Contributors
 

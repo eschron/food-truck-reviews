@@ -50,6 +50,7 @@ In a separate terminal tab, run:
 Then navigate to localhost:3000 in your browser.
 
 Finally, to run our test suite, in a separate terminal tab, run:  
+
 `rake` for the Rails models/features test  
 `npm test` for our Jasmine/Enzyme React component test.  
 

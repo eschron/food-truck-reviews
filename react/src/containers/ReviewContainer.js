@@ -22,7 +22,7 @@ export default class ReviewContainer extends Component {
     this.getVoteCount = this.getVoteCount.bind(this)
     this.showEditForm = this.showEditForm.bind(this)
     this.deleteReview = this.deleteReview.bind(this)
-    this.getUser= this.getUser.bind(this)
+    this.getUser = this.getUser.bind(this)
   }
 
   vote(value) {

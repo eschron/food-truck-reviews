@@ -17,10 +17,6 @@ describe('ReviewList', () => {
     wrapper = mount(<ReviewList id="app" reviews={reviews}/>);
   });
 
-  it('should render a heading', () => {
-    expect(wrapper.find('h4').text()).toEqual('Reviews');
-  });
-
   it('should render the reviews', () => {
     expect(wrapper.find(ReviewContainer).length).toEqual(1);
   });

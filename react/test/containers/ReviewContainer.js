@@ -15,8 +15,8 @@ describe('ReviewContainer', () => {
   });
 
   it('should render the review details', () => {
-    expect(wrapper.find('li').at(0).text()).toEqual('Votes: 0');
-    expect(wrapper.find('li').at(3).text()).toEqual('Rating: 5');
-    expect(wrapper.find('li').at(4).text()).toEqual('Description: the description');
+    expect(wrapper.find('.review-vote-count').text()).toEqual('Votes: 0');
+    expect(wrapper.find('.review-rating').text()).toEqual('Rating: 5');
+    expect(wrapper.find('.review-description').text()).toEqual('Description: the description');
   });
 })

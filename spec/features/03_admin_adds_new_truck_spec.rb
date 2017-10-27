@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Admin adds new truck" do
   before(:each) do
     @user = FactoryGirl.create(:user)
+    truck = FactoryGirl.create(:truck)
     @user.admin = true
     login_as(@user, :scope => :user)
     Location.create!(body: "South Station")

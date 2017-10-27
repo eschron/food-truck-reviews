@@ -1,13 +1,58 @@
-<h1> <%= @truck.name %></h1>
+<div class="truck-left-gutter"></div>
 
-<p>Description: <%= @truck.description %></p>
-<p>Location: <%= @truck.location.body %></p>
+<div class="truck">
+  <div class="truck-details">
 
-<div
-  id='app'
-  data-currentuserid='<%= current_user.id %>'
-  data-currentuseradmin='<%= current_user.admin %>'></div>
+    <div class="name">
+      <%= @truck.name %>
+    </div>
 
-<% if current_user.admin? || @truck.user == current_user %>
-  <%= link_to "Edit Truck", edit_truck_path(@truck) %>
-<% end %>
+    <div class="location">
+      <%= @truck.location.body %>
+    </div>
+
+    <div class="categories">
+      <% @truck.categories.each do |category| %>
+        <div class="category">
+          <%= category.cuisine %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="edit">
+      <% if current_user.admin? || @truck.user == current_user %>
+        <%= link_to "Edit Truck", edit_truck_path(@truck) %>
+      <% end %>
+    </div>
+
+    <div class="truck-rating">
+      <% avg_rating = @truck.reviews.average(:rating).to_f.round(1) %>
+      <% if @truck.reviews.length > 0 %>
+        Rating: <%= avg_rating %>
+      <% else %>
+        Be the first to review!
+      <% end %>
+    </div>
+
+    <div class="number-reviews">
+      <% num_of_reviews = @truck.reviews.length %>
+      <% if num_of_reviews > 1%>
+        Reviews: <%= num_of_reviews %>
+      <% elsif num_of_reviews == 1%>
+        1 review
+      <% else %>
+        No Reviews
+      <% end %>
+    </div>
+    <hr></hr>
+    <div class="description">
+      <%= @truck.description %>
+    </div>
+  </div>
+
+  <div
+    id='truck-reviews-app'
+    data-currentuserid='<%= current_user.id %>'
+    data-currentuseradmin='<%= current_user.admin %>'></div>
+</div>
+

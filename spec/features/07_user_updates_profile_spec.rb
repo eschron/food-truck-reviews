@@ -4,9 +4,11 @@ feature 'User updates account info' do
   scenario 'user changes their email, password, first name, and last name' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "First name", with: "Marky"
@@ -18,16 +20,18 @@ feature 'User updates account info' do
     click_on "Update"
 
     expect(page).to have_content("Your account has been updated successfully.")
-    expect(page).to have_content("My Profile")
+    expect(page).to have_content("Marky Mark")
     expect(page).to have_content(user.email)
   end
 
   scenario 'user does not enter current password' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"
@@ -42,9 +46,11 @@ feature 'User updates account info' do
   scenario 'user incorrectly confirms password' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"

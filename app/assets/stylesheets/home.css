@@ -1,0 +1,159 @@
+/* trucks index */
+
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+
+.home-body {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.panel {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #efeeea;
+}
+
+.panel .site-welcome-message {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
+.title {
+  font-size: 30pt;
+  color: var(--accent-color-2);
+  font-weight: bold;
+}
+
+.logo {
+  font-size: 24pt;
+  color: var(--accent-color);
+  width: 150px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+  background-image: url('yummy.png');
+  background-size: cover;
+}
+
+.site-welcome-message {
+  position: relative;
+  font-size: 16pt;
+}
+#welcome-message, #links {
+  background: none;
+}
+
+#featured {
+  position: relative;  
+  width: 100%;
+  height: auto;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.featured-label {
+  position: relative;  
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18pt;
+  font-family: 'Sigmar One', cursive;
+  color: rgb(30,30,30);
+}
+
+#links {
+  margin-top: 20px;
+  width: 100%;
+  min-width: 400px;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+
+
+.link-box {
+  position: relative;
+  width: 40%;
+  height: 120px;
+  background: #E5E7E7;
+  border: 1px solid gray;
+  margin: 0 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--n);
+  font-size: 14pt;
+}
+.link-box:hover a {
+  color: var(--accent-color-2);
+ }
+
+/* truck div */
+.featured-truck-container {
+  background: var(--main-color);
+  margin-top: 10px;
+  position: relative;  
+  float: left;
+  width: 80%;
+  min-width: 400px;
+  max-width: 600px;
+  border-radius: 6px;
+  padding: 20px;
+  border: 4px solid gray;  
+}
+.featured-truck {
+  position: relative;
+  margin-top: 0;
+  min-height: 0;
+  width: 100%;
+}
+
+.featured-truck-name {
+  position: relative;
+  float: left;
+  width: 100%;
+  font-size: 18pt;
+}
+.featured-truck-location {
+  width: 100%;
+  font-size: 12pt;
+}
+.featured-truck-description {
+  width: 100%;
+  font-size: 14pt;
+  margin-top: 10px;
+}
+
+.featured-truck-rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: white;
+  padding: 5px;
+  margin: 10px;
+  font-size: 12pt;
+  color: black;
+}
+.truck-container > .truck > .location {
+  width: 100%;
+  font-size: 12pt;
+  margin: 10px;
+  margin-top: 0;
+}

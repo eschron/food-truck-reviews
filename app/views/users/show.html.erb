@@ -1,11 +1,61 @@
-<%= link_to('Edit Profile', edit_user_registration_path) %>
+<div class="profile-left-gutter"></div>
 
-<h1>My Profile</h1>
+<div class="profile">
+  <div class="profile-details">
+    <div class="picture">
+      <%= image_tag(@user.avatar, :alt => "Profile Image", :class => "profile-image")%>
+    </div>
 
-<%= image_tag(@user.avatar, :alt => "Profile Image", :class => "profile-image")%>
+    <div class="name">
+      <%= "#{@user.first_name} #{@user.last_name}" %>
+    </div>
 
-<p>Name: <%= "#{@user.first_name} #{@user.last_name}" %>
-<p>Email: <%= @user.email %></p>
+    <div class="edit">
+      <%= link_to('Edit Profile', edit_user_registration_path) %>
+    </div>
+
+    <div class="email">
+      <%= @user.email %>
+    </div>
+
+    <div class="number-reviews">
+      <% num_of_reviews = @user.reviews.length %>
+      <% if num_of_reviews > 1%>
+        Reviews: <%= num_of_reviews %>
+      <% elsif num_of_reviews == 1%>
+        Review: 1
+      <% else %>
+        No Reviews
+      <% end %>
+    </div>
+  </div>
+
+  <div class="user-reviews">
+    <% @user.reviews.each do |review| %>
+      <div class="review">
+        <div class="review-content">
+          <div class="review-truck-name">
+            <%= link_to review.truck.name, review.truck%>
+          </div>
+          <div class="review-rating">
+            Rating: <%= review.rating %>
+          </div>
+          <div class="review-description">
+            Description: <%= review.description %>
+          </div>
+        </div>
+        <div class="review-vote-container">
+          <div>
+            Votes: 1
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+</div>
+
+
 
 <% if @user.truck_owner? %>
   <h4>My Trucks</h4>

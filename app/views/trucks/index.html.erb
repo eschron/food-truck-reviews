@@ -1,11 +1,54 @@
-<h1>All Trucks</h1>
+<div class="home-body">
+  <div class="panel">
+    <div class="title">Yummy</div>
+    <div class="logo">
+    </div>
+    <div class="title">Bear</div>
 
-<h1> Find a Nearby Food Truck </h1>
+  </div>
 
-<% if @trucks.length > 0 %>
-  <% @trucks.each do |truck| %>
-    <li> <%= link_to truck.name, truck_path(truck)%>, <%= truck.location.body %>:<%= truck.description %></li>
-  <% end %>
-<% else %>
-  <p>No Trucks yet, check back later.</p>
-<% end %>
+  <div class="panel" id="welcome-message">
+    <div class="site-welcome-message">
+      Welcome! Let your friends at YummyBear guide you to Boston's best food trucks. Happy eating :)
+    </div>
+  </div>
+
+  <div class="panel" id="featured">
+    <div class="featured-label">
+      Featured truck of the day!
+    </div>
+
+    <% truck = @trucks.last %>
+
+    <div class="featured-truck-container">
+      <div class="featured-truck">
+        <div class="featured-truck-name">
+          <%= link_to truck.name, truck_path(truck) %>
+        </div>
+        <div class="featured-truck-location">
+          <%= truck.location.body %>
+        </div>
+        <div class="featured-truck-description">
+          <%= truck.description %>
+        </div>
+        <div class="featured-truck-rating">
+          <% avg_rating = truck.reviews.average(:rating).to_f.round(1) %>
+          <% if truck.reviews.length > 0 %>
+            <%= avg_rating %>
+          <% else %>
+            Be the first to review!
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" id="links">
+    <div class="link-box">
+      <%= link_to "Find a food truck", search_path %>
+    </div>
+    <div class="link-box">
+      <%= link_to "View my reviews", user_path(current_user)%>
+    </div>
+  </div>
+</div>

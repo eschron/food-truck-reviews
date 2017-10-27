@@ -1,0 +1,257 @@
+.truck-left-gutter {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: calc((100% - 1000px) / 2);
+}
+.truck {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 200px;
+  max-width: 1000px;
+  margin-top: 20px;
+}
+
+
+.truck-details {
+  position: reative;
+  float: left;
+  width: 240px;
+  margin-right: 10px;
+}
+.truck-details > .name {
+  font-size: 20pt;
+  margin-left: 10px;
+  color: var(--accent-color-2);
+}
+
+
+.truck-details .edit {
+  margin-left: 10px;
+}
+
+.truck-details .location {
+  margin-left: 10px;
+}
+
+.truck-details .categories {
+  margin-top: 10px;
+  margin-left: 10px;
+  postion: relative;
+  float: left;
+  width: 100%;
+}
+.truck-details .categories > .category {
+  position: relative;
+  float: left;
+  margin: 5px;
+  padding: 5px;
+  background: var(--main-color);
+  box-shadow: 0 0 4px rgba(0,0,0,.1);
+  border-radius: 4px;
+}
+
+.truck-details > .number-reviews {
+  margin-left: 10px;
+  
+  font-size: 14pt;
+}
+
+.truck-details > .description {
+  font-size: 15pt;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.truck-details > .truck-rating {
+  font-size: 14pt;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+
+
+
+.truck-reviews {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: calc(100% - 250px);
+}
+
+.truck-reviews > .add-a-review-container {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+.truck-reviews > .add-a-review-container > .add-a-review {
+  position: relative;
+  float: left;
+  background: white;
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid gray;
+  border-radius: 4px;
+  font-size: 14pt;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+.truck-reviews > .add-a-review-container > .add-a-review:hover {
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  border-color: var(--accent-color-2);
+}
+
+.truck-reviews > .add-a-review-container > .add-a-review:focus {
+  outline: none;
+}
+
+.truck-reviews > .review-form {
+  position: relative;
+  float: left;
+  background: white;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.review-form .rating-order {
+  position: relative;
+  float: left;
+  width: 50px;
+}
+
+.review-form .description {
+  position: relative;
+  float: left;
+  width: calc(100% - 60px);
+}
+
+.description > .label {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.description > textarea {
+  position: relative;
+  float: left;
+  width: calc(100% - 6px);
+}
+
+.edit-review-button[value="Cancel Edits"] {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+
+.review-container {
+  position: relative;
+  float: left;
+  margin: 20px 10px;
+  width: calc(100% - 20px);
+  background: var(--main-color);
+}
+
+hr {
+  width: 95%;
+}
+
+.truck-reviews .review-content {
+  background-color: white;
+}
+
+.truck-reviews .review-content > div{
+  position: relative;
+  float: left;
+  border-radius: 4px;
+}
+
+.truck-reviews .review-rating {
+  font-size: 14pt;
+  padding: 8px;
+}
+
+.truck-reviews .review-button {
+  background-color: orange;
+}
+
+.truck-reviews .review-vote {
+  background-color: pink;
+}
+
+.truck-reviews .review-vote-count, .up, .down {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.truck-reviews .review-description {
+  padding: 8px;
+}
+
+.review-prof-pic {
+  width: 20%;
+  min-height: 40px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.truck-reviews .review-body {
+  width: 65%;
+  min-height: 40px;
+}
+
+.edit-review-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.review-votes {
+  width: 15%;
+  min-height: 120px;
+}
+.review-votes div {
+  padding: 4px;
+}
+.review-votes .material-icons {
+  cursor: pointer;
+}
+.review-prof-pic .img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.review-prof-pic img {
+  position: relative;
+  width: 100%;
+  max-width: 75px;
+  height: auto;
+  margin: 10px auto;
+}
+
+.review-prof-pic .user-name {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15px;
+  width: 100%;
+  color: var(--accent-color);
+}
+
+.admin-delete {
+  position: absolute;
+  right: 95px;
+  bottom: 10px;
+}

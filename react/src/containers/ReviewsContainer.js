@@ -18,8 +18,8 @@ class ReviewsContainer extends Component {
   }
 
   getReviews() {
-    let id = (document.getElementById('app'))
-      ? parseInt((document.getElementById('app').dataset.currentuserid), 10)
+    let id = (document.getElementById('truck-reviews-app'))
+      ? parseInt((document.getElementById('truck-reviews-app').dataset.currentuserid), 10)
       : null
 
     fetch(`/api/trucks/${this.props.params.id}/reviews.json`)
@@ -106,10 +106,15 @@ class ReviewsContainer extends Component {
     }
 
     return (
-      <div className="row">
-        <input type="button" value="Add a review" onClick={this.handleAddReviewClick} />
-        <div className="small-9 small-centered columns">
-          <h1 className="text-center"></h1>
+      <div className="truck-reviews">
+        <div className="add-a-review-container">
+          <input
+            className="add-a-review"
+            type="button"
+            value="Add a review"
+            onClick={this.handleAddReviewClick} />
+        </div>
+        <div className="review-form">
           {formDiv}
         </div>
         <ReviewList

@@ -14,7 +14,29 @@
  *= require_self
  */
 
-.profile-image {
-  width: 100px;
-  height: auto;
+body, html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  --main-color: #BABEC4;
+  --accent-color: #215CA8;
+  background-color: white;
+  --accent-color-2: #D60342;
+  /* --truck-background:  */
+
+  --q: 'Questrial', sans-serif;
+  --n: 'Nunito Sans', sans-serif;
+  --d: 'Didact Gothic', sans-serif;
+
+  font-family: var(--d);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
 }

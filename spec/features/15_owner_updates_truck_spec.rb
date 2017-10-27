@@ -8,6 +8,7 @@ RSpec.describe "Owner updates truck" do
     @south_station = Location.create!(body: "South Station")
     @north_station = Location.create!(body: "North Station")
     @my_truck = FactoryGirl.create(:truck, location: @south_station, user: user)
+    truck = FactoryGirl.create(:truck)
   end
 
   scenario "Owner visits truck edit page" do

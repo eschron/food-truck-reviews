@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'User signs in' do
   scenario 'user logs in to the site from the homepage' do
     user = FactoryGirl.create(:user)
+    truck = FactoryGirl.create(:truck)
     visit '/'
 
     fill_in 'Email', with: user.email
@@ -10,7 +11,7 @@ feature 'User signs in' do
     click_on "Log in"
 
     expect(page).to have_content("Signed in successfully")
-    expect(page).to have_content("Find a Nearby Food Truck")
+    expect(page).to have_content("Welcome!")
   end
 
   scenario 'user signs in with an incorrect password' do

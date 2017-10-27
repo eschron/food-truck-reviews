@@ -23,6 +23,7 @@
 .profile-details > .name {
   font-size: 20pt;
   margin-left: 10px;
+  color: var(--accent-color-2);
 }
 .profile-details > .email {
   font-size: 14pt;

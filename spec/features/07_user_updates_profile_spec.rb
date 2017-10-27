@@ -7,7 +7,8 @@ feature 'User updates account info' do
     truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "First name", with: "Marky"
@@ -29,7 +30,8 @@ feature 'User updates account info' do
     truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"
@@ -47,7 +49,8 @@ feature 'User updates account info' do
     truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     fill_in "Password", with: "newpassword"

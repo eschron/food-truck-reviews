@@ -10,6 +10,15 @@
    float: left;
 }
 
+.nav .signout {
+  position: relative;
+  float: right;
+}
+.nav .admin-link {
+  position: relative;
+  float: right;
+}
+
 .nav li a {
    display: block;
    color: #fffcf9;

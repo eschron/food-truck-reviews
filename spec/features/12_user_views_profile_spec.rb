@@ -7,7 +7,8 @@ RSpec.describe "User visits profile page" do
     truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
 
     expect(page).to have_css("img[src='#{user.avatar}']")
     expect(page).to have_css("img[alt='Profile Image']")

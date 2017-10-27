@@ -22,8 +22,7 @@ body, html {
   --main-color: #BABEC4;
   --accent-color: #215CA8;
   background-color: white;
-  --font-color-one: blue;
-  --font-color-two: red;
+  --accent-color-2: #D60342;
   /* --truck-background:  */
 
   --q: 'Questrial', sans-serif;

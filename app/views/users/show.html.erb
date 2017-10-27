@@ -21,9 +21,9 @@
     <div class="number-reviews">
       <% num_of_reviews = @user.reviews.length %>
       <% if num_of_reviews > 1%>
-        <%= num_of_reviews %>
+        Reviews: <%= num_of_reviews %>
       <% elsif num_of_reviews == 1%>
-        1 review
+        Review: 1
       <% else %>
         No Reviews
       <% end %>
@@ -35,7 +35,7 @@
       <div class="review">
         <div class="review-content">
           <div class="review-truck-name">
-            <%= review.truck.name %>
+            <%= link_to review.truck.name, review.truck%>
           </div>
           <div class="review-rating">
             Rating: <%= review.rating %>

@@ -15,18 +15,23 @@
   <header class="nav">
     <ul>
       <% if user_signed_in? %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to 'Home', trucks_path %></li>
-        <li><%= link_to('Profile', user_path(current_user)) %></li>
+
+        <% name = "#{current_user.first_name} #{current_user.last_name}" %>
+        <li><%= link_to(name, user_path(current_user)) %></li>
+
         <li><%= link_to('Search All Trucks', search_path) %></li>
 
+        <li class="signout"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        
         <% if current_user.admin? %>
-          <li><%= link_to "All Users", users_path %></li>
+          <li class="admin-link"><%= link_to "All Users", users_path %></li>
         <% end %>
 
         <% if current_user.admin? || current_user.truck_owner? %>
-           <li><%= link_to "Add Food Truck", new_truck_path %></li>
+           <li class="admin-link"><%= link_to "Add Food Truck", new_truck_path %></li>
         <% end %>
+        
       <% end %>
     </ul>
   </header>

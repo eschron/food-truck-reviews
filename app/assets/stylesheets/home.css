@@ -1,5 +1,7 @@
 /* trucks index */
 
+@import url('https://fonts.googleapis.com/css?family=Sigmar+One');
+
 .home-body {
   position: relative;
   width: 100%;
@@ -20,9 +22,16 @@
   background: #efeeea;
 }
 
+.panel .site-welcome-message {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+}
+
 .title {
-  font-size: 24pt;
-  color: var(--accent-color);
+  font-size: 30pt;
+  color: var(--accent-color-2);
+  font-weight: bold;
 }
 
 .logo {
@@ -62,7 +71,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 16pt;
+  font-size: 18pt;
+  font-family: 'Sigmar One', cursive;
+  color: rgb(30,30,30);
 }
 
 #links {
@@ -72,6 +83,9 @@
   max-width: 600px;
   margin-bottom: 20px;
 }
+
+
+
 .link-box {
   position: relative;
   width: 40%;
@@ -87,6 +101,9 @@
   font-family: var(--n);
   font-size: 14pt;
 }
+.link-box:hover a {
+  color: var(--accent-color-2);
+ }
 
 /* truck div */
 .featured-truck-container {
@@ -99,6 +116,7 @@
   max-width: 600px;
   border-radius: 6px;
   padding: 20px;
+  border: 4px solid gray;  
 }
 .featured-truck {
   position: relative;

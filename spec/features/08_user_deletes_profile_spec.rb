@@ -7,7 +7,8 @@ feature 'User deletes account' do
     truck = FactoryGirl.create(:truck)
 
     visit "/"
-    click_on "Profile"
+    name = "#{user.first_name} #{user.last_name}"
+    click_on name
     click_on "Edit Profile"
 
     click_on "Cancel my account"

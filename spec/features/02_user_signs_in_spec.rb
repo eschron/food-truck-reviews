@@ -11,7 +11,7 @@ feature 'User signs in' do
     click_on "Log in"
 
     expect(page).to have_content("Signed in successfully")
-    expect(page).to have_content("Welcome! This is a website.")
+    expect(page).to have_content("Welcome!")
   end
 
   scenario 'user signs in with an incorrect password' do

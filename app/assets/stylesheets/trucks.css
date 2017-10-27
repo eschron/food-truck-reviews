@@ -23,7 +23,7 @@
 .truck-details > .name {
   font-size: 20pt;
   margin-left: 10px;
-  color: var(--accent-color);
+  color: var(--accent-color-2);
 }
 
 
@@ -94,11 +94,15 @@
   background: white;
   margin: 5px;
   padding: 5px;
+  border: 2px solid gray;
   border-radius: 4px;
   font-size: 14pt;
   cursor: pointer;
-  border: none;
   box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+.truck-reviews > .add-a-review-container > .add-a-review:hover {
+  box-shadow: 0 0 4px rgba(0,0,0,.4);
+  border-color: var(--accent-color-2);
 }
 
 .truck-reviews > .add-a-review-container > .add-a-review:focus {
@@ -131,10 +135,16 @@
   width: 100%;
 }
 
-.description > .textarea {
+.description > textarea {
   position: relative;
   float: left;
-  width: 100%;
+  width: calc(100% - 6px);
+}
+
+.edit-review-button[value="Cancel Edits"] {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
 }
 
 .review-container {
@@ -156,6 +166,7 @@ hr {
 .truck-reviews .review-content > div{
   position: relative;
   float: left;
+  border-radius: 4px;
 }
 
 .truck-reviews .review-rating {
@@ -206,7 +217,7 @@ hr {
 }
 .review-votes {
   width: 15%;
-  min-height: 60px;
+  min-height: 120px;
 }
 .review-votes div {
   padding: 4px;

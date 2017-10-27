@@ -1,16 +1,15 @@
-Hello <%= @review.truck.user.first_name %>,
+<p>Hello <%= @review.truck.user.first_name %>,</p>
 
-<%= "#{@review.user.first_name} #{@review.user.last_name}" %> has added a review for your food truck, <%= @review.truck.name %>!
-Here's what they had to say:
+<p><%= "#{@review.user.first_name} #{@review.user.last_name}" %> has added a review for your food truck, <%= @review.truck.name %>!
+Here's what they had to say:</p>
 
-Rating: <%= @review.rating %>
+<p>Rating: <%= @review.rating %></p>
 <% if @review.description %>
-<br/>
-Description: <%= @review.description %>
+<p>Description: <%= @review.description %></p>
 <% end %>
 
-<a href = "<%= "yummybear.herokuapp.com/#{@review.truck_id}"%>">Check out all your reviews here.</a>
+<p><a href = "<%= "yummybear.herokuapp.com/trucks/#{@review.truck_id}"%>">Check out all your reviews here.</a></p>
 
-Happy eating,
+<p>Happy eating,</p>
 
-The YummyBear Team
+<p>The YummyBear Team</p>

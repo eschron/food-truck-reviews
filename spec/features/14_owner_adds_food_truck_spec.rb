@@ -4,6 +4,7 @@ RSpec.describe "Owner adds food truck" do
     user = FactoryGirl.create(:user, truck_owner: true)
     login_as(user, :scope => :user)
     Location.create!(body: "South Station")
+    truck = FactoryGirl.create(:truck)
   end
 
   scenario "User sees list of all trucks" do

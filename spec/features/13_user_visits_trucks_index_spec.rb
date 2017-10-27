@@ -6,6 +6,7 @@ RSpec.describe "User visits trucks index page" do
 
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    truck = FactoryGirl.create(:truck)
 
     visit trucks_path
 

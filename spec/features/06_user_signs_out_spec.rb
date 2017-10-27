@@ -4,6 +4,7 @@ feature 'User signs out' do
   scenario 'User logs out of their account' do
     user = FactoryGirl.create(:user)
     login_as(user, :scope => :user)
+    truck = FactoryGirl.create(:truck)
 
     visit '/'
     click_on 'Sign Out'

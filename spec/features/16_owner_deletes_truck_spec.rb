@@ -4,6 +4,7 @@ RSpec.describe "Owner deletes truck" do
   before(:each) do
     user = FactoryGirl.create(:user, truck_owner: true)
     login_as(user, :scope => :user)
+    @truck = FactoryGirl.create(:truck)
 
     @south_station = Location.create!(body: "South Station")
     @my_truck = FactoryGirl.create(:truck, location: @south_station, user: user)
@@ -13,7 +14,7 @@ RSpec.describe "Owner deletes truck" do
     visit edit_truck_path(@my_truck)
     truck_id = @my_truck.id
 
-    click_on "delete"
+    click_on "Delete"
 
     expect(page).to have_content("All Trucks")
     expect(page).to have_content("Food Truck successfully deleted")

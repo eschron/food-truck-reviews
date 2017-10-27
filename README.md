@@ -8,7 +8,7 @@
 
 This site is a platform for listing and reviewing Boston area food trucks. This repository is a group project created at the coding bootcamp Launch Academy as a way to showcase our skills with a variety of web development technologies.
 
-Check out our site at [yummybear.herokuapp.com](yummybear.herokuapp.com)
+Check out our site at [yummybear.herokuapp.com](http://yummybear.herokuapp.com)
 
 ## Technologies
 

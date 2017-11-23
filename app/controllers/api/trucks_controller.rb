@@ -6,6 +6,7 @@ class Api::TrucksController < ApplicationController
   end
 
   def index
+    render json: "Hi"
     render json: { trucks: Truck.all }
   end
 end

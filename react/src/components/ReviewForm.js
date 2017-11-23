@@ -28,8 +28,6 @@ const ReviewForm = props => {
       <label className="description">
         <div className="label">Description</div>
         <textarea
-          className="textarea"
-          name='description'
           type='text'
           value={props.description}
           onChange={props.handleDescriptionChange}

@@ -2,6 +2,10 @@
 
 @import url('https://fonts.googleapis.com/css?family=Sigmar+One');
 
+.home-padding {
+  padding: 0 10px;
+}
+
 .home-body {
   position: relative;
   width: 100%;
@@ -56,7 +60,7 @@
 }
 
 #featured {
-  position: relative;  
+  position: relative;
   width: 100%;
   height: auto;
   padding: 15px;
@@ -65,7 +69,7 @@
   flex-wrap: wrap;
 }
 .featured-label {
-  position: relative;  
+  position: relative;
   float: left;
   width: 100%;
   display: flex;
@@ -109,14 +113,14 @@
 .featured-truck-container {
   background: var(--main-color);
   margin-top: 10px;
-  position: relative;  
+  position: relative;
   float: left;
   width: 80%;
   min-width: 400px;
   max-width: 600px;
   border-radius: 6px;
   padding: 20px;
-  border: 4px solid gray;  
+  border: 4px solid gray;
 }
 .featured-truck {
   position: relative;

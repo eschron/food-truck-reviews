@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Didact+Gothic|Nunito+Sans|Questrial" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-      
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
@@ -24,7 +24,7 @@
         <li><%= link_to('Search All Trucks', search_path) %></li>
 
         <li class="signout"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        
+
         <% if current_user.admin? %>
           <li class="admin-link"><%= link_to "All Users", users_path %></li>
         <% end %>
@@ -32,7 +32,7 @@
         <% if current_user.admin? || current_user.truck_owner? %>
            <li class="admin-link"><%= link_to "Add Food Truck", new_truck_path %></li>
         <% end %>
-        
+
       <% end %>
     </ul>
   </header>
@@ -42,7 +42,6 @@
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     <% end %>
-    
     <%= yield %>
   </body>
 </html>

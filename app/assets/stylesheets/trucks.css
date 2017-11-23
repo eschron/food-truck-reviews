@@ -4,6 +4,7 @@
   height: 100%;
   width: calc((100% - 1000px) / 2);
 }
+
 .truck {
   position: relative;
   float: left;
@@ -13,19 +14,18 @@
   margin-top: 20px;
 }
 
-
 .truck-details {
-  position: reative;
+  position: relative;
   float: left;
   width: 240px;
   margin-right: 10px;
 }
+
 .truck-details > .name {
   font-size: 20pt;
   margin-left: 10px;
   color: var(--accent-color-2);
 }
-
 
 .truck-details .edit {
   margin-left: 10px;
@@ -54,7 +54,6 @@
 
 .truck-details > .number-reviews {
   margin-left: 10px;
-  
   font-size: 14pt;
 }
 
@@ -71,9 +70,6 @@
   margin-top: 20px;
   margin-left: 10px;
 }
-
-
-
 
 .truck-reviews {
   position: relative;
